@@ -91,7 +91,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
           let d = new Date(0); 
           d.setUTCSeconds(utcSeconds);
           // console.log(tempLabel);
-          document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
+          // document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
           matchList = data.matches;
            // var championList = []
             $.ajax({
@@ -102,7 +102,8 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
             dataType: "json",
 
             success: function(matchData) {
-              console.log(matchData);
+              document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
+              // console.log(matchData);
               // championList = data;
               // for (i = 0; i < data.length; i++ ) {
                 // championList
