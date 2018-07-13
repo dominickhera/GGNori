@@ -137,23 +137,50 @@ window.onload = function() {
 
             success: function(matchData) {
               console.log(matchData);
-
+              let tempUsernameID = 0;
               for (k=0; k < matchData.participantIdentities.length; k++){ 
                 if (matchData.participantIdentities[k].player.summonerName == tempUsername) {
-                  summonerSpell1 = matchData.participants[k].spell1Id;
-                  summonerSpell2 = matchData.participants[k].spell12d;
-                  gameDuration = matchData.gameDuration / 60;
-                  championLevel = matchData.participants[k].stats.champLevel;
-                  totalCS = matchData.participants[k].stats.totalMinionsKilled;
-                  gameKills = matchData.participants[k].stats.kills;
-                  gameDeaths = matchData.participants[k].stats.deaths;
-                  gameAssists = matchData.participants[k].stats.assists;
+                  tempUsernameID = k;
+                  // summonerSpell1 = matchData.participants[k].spell1Id;
+                  // summonerSpell2 = matchData.participants[k].spell12d;
+                  // gameDuration = matchData.gameDuration / 60;
+                  // championLevel = matchData.participants[k].stats.champLevel;
+                  // totalCS = matchData.participants[k].stats.totalMinionsKilled;
+                  // gameKills = matchData.participants[k].stats.kills;
+                  // gameDeaths = matchData.participants[k].stats.deaths;
+                  // gameAssists = matchData.participants[k].stats.assists;
 
-                  if(matchData.participants[k].stats.win == true) {
+                  // if(matchData.participants[k].stats.win == true) {
+                  //   winCondition = "Win";
+                  // } else {
+                  //   winCondition = "Loss";
+                  // }
+                  // kdaStat = (gameKills + gameAssists) / gameDeaths;
+                  // csPM = (totalCS/ gameDuration);
+                  // let tempHeaderLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
+                  // document.getElementById(tempHeaderLabel).innerHTML = "Result: " + winCondition + " - Duration: " + gameDuration + " Minutes";
+                  // console.log("Result: " + winCondition + " - Duration: " + gameDuration + " Minutes");
+                  // let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
+                  // document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
+                  // console.log("Total CS: " + totalCS + " - CS/Minute: " + csPM);
+                  // console.log(matchData.participants[k]);
+                }
+              }
+                  summonerSpell1 = matchData.participants[tempUsernameID].spell1Id;
+                  summonerSpell2 = matchData.participants[tempUsernameID].spell12d;
+                  gameDuration = matchData.gameDuration / 60;
+                  championLevel = matchData.participants[tempUsernameID].stats.champLevel;
+                  totalCS = matchData.participants[tempUsernameIDp].stats.totalMinionsKilled;
+                  gameKills = matchData.participants[tempUsernameID].stats.kills;
+                  gameDeaths = matchData.participants[tempUsernameID].stats.deaths;
+                  gameAssists = matchData.participants[tempUsernameID].stats.assists;
+
+                  if(matchData.participants[tempUsernameID].stats.win == true) {
                     winCondition = "Win";
                   } else {
                     winCondition = "Loss";
                   }
+
                   kdaStat = (gameKills + gameAssists) / gameDeaths;
                   csPM = (totalCS/ gameDuration);
                   let tempHeaderLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
@@ -163,8 +190,6 @@ window.onload = function() {
                   document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
                   console.log("Total CS: " + totalCS + " - CS/Minute: " + csPM);
                   console.log(matchData.participants[k]);
-                }
-              }
               // championList = data;
               // for (i = 0; i < data.length; i++ ) {
                 // championList
