@@ -96,6 +96,7 @@ var matchList = [];
           d.setUTCSeconds(utcSeconds);
           matchList = data;
           // console.log(tempLabel);
+          let userChampionName = championList[data.matches[i].champion].name 
           // document.getElementById(tempLabel).innerHTML = "Match Length: " + <br> "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
 
            // var championList = []
@@ -139,7 +140,7 @@ var matchList = [];
 
                   // let gameDuration = data.gameDuration / 60;
                   let tempLabel = "champAndLevelLabel" + (i + 1);
-                  document.getElementById(tempLabel).innerHTML = "Outcome: "+ winCondition + "Match Length: " +  gameDuration + " minutes" <br> "Champion Played: " + championList[matchList.matches[i].champion].name + " - Date: " + d;
+                  document.getElementById(tempLabel).innerHTML = "Outcome: Match Length: minutes" <br> "Champion Played: " + userChampionName + " - Date: " + d;
                 //   // for (i = 0; i < data.length; i++ ) {
                 //     // championList
                 //   // }
