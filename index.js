@@ -62,10 +62,11 @@ app.get('/summoner/:name', function(req, res) {
     // {},
     // console.log
 // ));
-  irelia.getSummonerByName('na', req.params.name, function(err, res) {
-    console.log(err, res);
+  irelia.getSummonerByName('na', req.params.name, function(err, result) {
+    // console.log(err, res);
+    res.status(200).send(result);
   });
-  res.status(200).send(req.params.name);
+  // res.status(200).send(req.params.name);
   // res.status(200).sendFile(path.join(__dirname+'/public/test.html'));
 });
 // There will be a test page available on the /test path of your server url
