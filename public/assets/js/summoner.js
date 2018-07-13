@@ -126,16 +126,16 @@ var matchList = [];
                   } else {
                       winCondition.innerHTML = "Loss";
                   }
-                  let tempTableName = "itemBuild" + (k + 1);
-                  var tempTable = document.getElementById(tempTableName);
-                  // var itemBuild = [];
-                  for(m = 0; m < 6; m++) {
-                    let tempName = "item" + m;
-                    let tempRow = tempTable.insertRow(m+1);
-                    let tempCell = tempRow.insertCell(0);
-                    tempCell.innerHTML = itemList.data[data.participants[k].stats.tempName].name
-                    // itemBuild.push(data.participants[k].stats.tempName);
-                  }
+                  // let tempTableName = "itemBuild" + (k + 1);
+                  // var tempTable = document.getElementById(tempTableName);
+                  // // var itemBuild = [];
+                  // for(m = 0; m < 6; m++) {
+                  //   let tempName = "item" + m;
+                  //   let tempRow = tempTable.insertRow(m+1);
+                  //   let tempCell = tempRow.insertCell(0);
+                  //   tempCell.innerHTML = itemList.data[data.participants[k].stats.tempName].name
+                  //   // itemBuild.push(data.participants[k].stats.tempName);
+                  // }
 
                   let gameDuration = data.gameDuration / 60;
                   let tempLabel = "champAndLevelLabel" + (i + 1);
