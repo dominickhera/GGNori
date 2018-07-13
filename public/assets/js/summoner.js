@@ -116,7 +116,7 @@ var matchList = [];
                 }
                   // let spell1 = data.participants[userMatchID - 1].spell1Id;
                   // let spell2 = data.participants[ userMatchID - 1].spell2Id;
-                  let championLevel = data.participants[userMatchID].stats.champLevel;
+                  // let championLevel = data.participants[userMatchID].stats.champLevel;
                   // let totalCS = data.participants[userMatchID - 1].stats.totalMinionsKilled;
                   // let winCondition = "";
                   // let kdaStat = (data.participants[userMatchID - 1].stats.kills + data.participants[userMatchID - 1].stats.assists) / data.participants[userMatchID - 1].stats.deaths;
@@ -146,7 +146,7 @@ var matchList = [];
                   // let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
                   // document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
 
-                  document.getElementById(innerTempLabel).innerHTML = championList.data[matchList.matches[i].champion].name + " - Level: " + champLevel;
+                  // document.getElementById(innerTempLabel).innerHTML = championList.data[matchList.matches[i].champion].name + " - Level: " + champLevel;
 
                 // }
             // }
