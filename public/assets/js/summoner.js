@@ -71,6 +71,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
         }
   });
 
+  var matchList = [];
   $.ajax({
     url: "/summoner/" + tempUsername,
     type: 'get',
@@ -91,7 +92,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
           d.setUTCSeconds(utcSeconds);
           // console.log(tempLabel);
           document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
-
+          matchList = data.matches;
            // var championList = []
             $.ajax({
             url: "/matchInfo/"+ data.matches[i].gameId,
@@ -100,8 +101,9 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
           // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
             dataType: "json",
 
-            success: function(data) {
-              championList = data;
+            success: function(matchData) {
+              console.log(matchData);
+              // championList = data;
               // for (i = 0; i < data.length; i++ ) {
                 // championList
               // }
