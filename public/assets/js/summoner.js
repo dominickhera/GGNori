@@ -36,14 +36,19 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
     success: function(data) {
       console.log(data);
       document.getElementById("demo2").innerHTML = data;
-      // for (i=0; i < data.length; i++) {
-  // //       // cryptoArray.push(data[i]);
+      for (i=1; i < data.length + 1; i++) {
+        // for(let match of data) {
+          let tempLabel = "champAndLevelLabel" + i
+          document.getElementById(tempLabel).innerHTML = "Champion Played: " + data[i-1].champion + " - Time/Lenth: " + data[i-1].timestamp;
+        }
+
+  //       // cryptoArray.push(data[i]);
   // //       // $("#cryptoDataList").append("<li>"+ cryptoArray[i].id + "</li>");
   // //     //  if(cryptoArray[i].percent_change_1h > 0)
   // //     //  {
   // //         // $("#cryptoList").append("<option value=\"" + cryptoArray[i].id + "\">" + cryptoArray[i].id + "</option>");
   // //     //  }
-  //     // }
+      // }
   // //     // selectionSort(cryptoArray);
     },
         fail: function(error) {
