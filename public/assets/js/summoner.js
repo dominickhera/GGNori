@@ -39,8 +39,9 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
       for (i=1; i < data.matches.length + 1; i++) {
         // for(let match of data) {
           console.log(data.matches[i-1].champion);
-          // let tempLabel = "champAndLevelLabel" + i
-          // document.getElementById(tempLabel).innerHTML = "Champion Played: " + data.matches[i-1].champion + " - Time/Lenth: " + data.matches[i-1].timestamp;
+          let tempLabel = "champAndLevelLabel" + i;
+          // console.log(tempLabel);
+          document.getElementById(tempLabel).innerHTML = "Champion Played: " + data.matches[i-1].champion + " - Time/Lenth: " + data.matches[i-1].timestamp;
         }
 
   //       // cryptoArray.push(data[i]);
