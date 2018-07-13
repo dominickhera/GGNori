@@ -39,7 +39,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
       for (i=0; i < data.matches.length; i++) {
         // for(let match of data) {
           console.log(data.matches[i].champion);
-          let tempLabel = "champAndLevelLabel" + i;
+          let tempLabel = "champAndLevelLabel" + (i + 1);
           // console.log(tempLabel);
           document.getElementById(tempLabel).innerHTML = "Champion Played: " + data.matches[i].champion + " - Time/Lenth: " + data.matches[i].timestamp;
         }
