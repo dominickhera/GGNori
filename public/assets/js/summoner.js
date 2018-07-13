@@ -85,7 +85,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
       for (i=0; i < data.matches.length; i++) {
         // for(let match of data) {
           console.log(data.matches[i].champion);
-          let tempLabel = "champAndLevelLabel" + (i + 1);
+          // let tempLabel = "champAndLevelLabel" + (i + 1);
           let innerTempLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
           let utcSeconds = data.matches[i].timestamp;
           let d = new Date(0); 
@@ -102,12 +102,13 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
             dataType: "json",
 
             success: function(matchData) {
-              document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
-              // console.log(matchData);
+              console.log(matchData);
               // championList = data;
               // for (i = 0; i < data.length; i++ ) {
                 // championList
               // }
+              let tempLabel = "champAndLevelLabel" + (i + 1);
+               document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
 
             },
                 fail: function(error) {
