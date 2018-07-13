@@ -10,7 +10,7 @@ query.split("&").forEach(function(part) {
 });
 console.log(result.userName);
 var tempUsername = result.userName;
-document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
+document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
 
 // window.onload = function() {
 // var query = location.search.substr(1);
