@@ -1,13 +1,4 @@
-// console.log("lol cats");
-// document.getElementByID('summonerSearchButton').onclick = function()
-// {
-//     // console.log("why")
-  // document.getElementById("demo").innerHTML =  "The full URL of this page is:<br>" + window.location.href;
-// }
 
-// ("summonerSearchForm").onsubmit(){
-  // document.getElementById("demo").innerHTML = "The full URL of this page is:<br>" + window.location.href;
-// }
 window.onload = function() {
 console.log("why");
 
@@ -42,49 +33,3 @@ $.ajax({
 
   console.log("wtf");
 }
-// function test() {
-//    // document.getElementById("demo").innerHTML =  "The full URL of this page is:<br>" + window.location.href;
-//   console.log("succes");
-//    $(document).ajax({
-//     url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
-//     dataType: "json",
-//     // hearers: {
-//     //  "Origin": "https://developer.riotgames.com",
-//     //  "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
-//     //  "X-Riot-Token": "RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
-//     //  "Accept-Language": "en-us",
-//     //  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.1 Safari/605.1.15"
-//     // },
-//     success: function(data) {
-//       console.log(data);
-//     }
-//   });
-// }
-
-// document.getElementById("demo").innerHTML = 
-// "The full URL of this page is:<br>" + window.location.href;
-
-// document.getElementById("message").getElementByClass("demo").innerHTML = 
-// "The full URL of this page is:<br>" + window.location.href;
-// // $(document).ready(function() {
- // $.ajax({
- //    url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
- //    dataType: "json",
- //    // hearers: {
- //    // 	"Origin": "https://developer.riotgames.com",
- //   	// 	"Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
- //    // 	"X-Riot-Token": "RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
- //    // 	"Accept-Language": "en-us",
- //    // 	"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.1 Safari/605.1.15"
- //    // },
- //    success: function(data) {
- //      console.log(data);
- //    }
- //  });
-// // }
-
-// document.getElementByID('summonerSearchButton').onclick = function()
-// {
-//     console.log("why")
-// }
-// console.log("hello")

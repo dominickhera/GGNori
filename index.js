@@ -62,6 +62,15 @@ app.get('/champions/', function(req, res) {
     });
 });
 
+app.get('/champions/:name', function(req, res) {
+  request({
+        url: "https://na1.api.riotgames.com/lol/static-data/v3/champions/"+ req.params.name +"?locale=en_US&dataById=true&api_key=RGAPI-ae98d0f4-0cfe-48e2-8510-1c02b419771e",
+        json: true,
+      }, function(err, response, body) {
+        res.status(200).send(body);
+    });
+});
+
 app.get('/items/', function(req, res) {
   request({
         url: "https://na1.api.riotgames.com/lol/static-data/v3/items?locale=en_US&dataById=true&api_key=RGAPI-ae98d0f4-0cfe-48e2-8510-1c02b419771e",
