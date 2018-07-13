@@ -76,7 +76,7 @@ app.get('/summoner/:name', function(req, res) {
       // res.status(200).send("booty");
     // }
   });
-  res.status(200).send(req.params.name);
+  // res.status(200).send(req.params.name);
   // res.status(200).sendFile(path.join(__dirname+'/public/test.html'));
 });
 // There will be a test page available on the /test path of your server url
