@@ -68,15 +68,15 @@ app.get('/summoner/:name', function(req, res) {
     url: url,
     json: true
   }, function (err, response, body) {
-    if(!error && response.statusCode === 200) {
+    if(!error && response.statusCode == 200) {
       res.status(200).send(body);
     }
-    else
-    {
-      res.status(200).send("booty");
-    }
+    // else
+    // {
+      // res.status(200).send("booty");
+    // }
   });
-  // res.status(200).send(req.params.name);
+  res.status(200).send(req.params.name);
   // res.status(200).sendFile(path.join(__dirname+'/public/test.html'));
 });
 // There will be a test page available on the /test path of your server url
