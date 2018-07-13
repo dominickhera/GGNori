@@ -99,7 +99,8 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
             dataType: "json",
 
             success: function(championNameData) {
-              champName = championNameData.name;
+              champName = championNameData;
+              console.log(champName);
               // for (i = 0; i < data.length; i++ ) {
                 // championList
               // }
