@@ -25,7 +25,29 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
   // var urlSearch = newURL(urlParse);
   // var summonerUserName = urlSearch.searchParams.get("userName");
   // console.log(urlParse);
-  var searchUrl = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + tempUsername + "?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
+  // var searchUrl = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + tempUsername + "?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
+    var championList = []
+    $.ajax({
+    url: "/champions/",
+    type: 'get',
+  //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
+  // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
+    dataType: "json",
+
+    success: function(data) {
+      championList = data;
+      // for (i = 0; i < data.length; i++ ) {
+        // championList
+      // }
+
+    },
+        fail: function(error) {
+            
+            // Non-200 return, do something with error
+            console.log(error); 
+        }
+  });
+
   $.ajax({
     url: "/summoner/" + tempUsername,
     type: 'get',
@@ -40,8 +62,10 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
         // for(let match of data) {
           console.log(data.matches[i].champion);
           let tempLabel = "champAndLevelLabel" + (i + 1);
+          let innerTempLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
           // console.log(tempLabel);
-          document.getElementById(tempLabel).innerHTML = "Champion Played: " + data.matches[i].champion + " - Time/Lenth: " + data.matches[i].timestamp;
+          document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList[data.matches[i].champion] + " - Time/Length: " + data.matches[i].timestamp;
+          document.getElementById(innerTempLabel).innerHTML = "Champion Played: " + championList[data.matches[i].champion] + " - Time/Length: " + data.matches[i].timestamp;
         }
 
   //       // cryptoArray.push(data[i]);

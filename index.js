@@ -52,17 +52,17 @@ app.get('/summoner/', function(req, res) {
   // res.status(200).send('I dream of being a website.  Please star the parse-server repo on GitHub!');
 });
 
+var championList = []
+app.get('/champions/', function(req, res) {
+  request({
+        url: "https://na1.api.riotgames.com/lol/static-data/v3/champions?locale=en_US&dataById=true&api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
+        json: true,
+      }, function(err, response, body) {
+        res.status(200).send(body);
+    });
+});
 
 app.get('/summoner/:name', function(req, res) {
-  // riot.summoner.byName(
-    // req.params.name, //or 'Dyrus,I DIED TO WOLVES,InsertSmurfHere'
-    // {},
-    // console.log(riot.summoner.byName(req.params.name));
-// );
-  // res.status(200).send(riot.summoner.byName(req.params.name)); //or 'Dyrus,I DIED TO WOLVES,InsertSmurfHere'
-    // {},
-    // console.log
-// ));
   var url = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + req.params.name + "?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
   request({
     url: url,
@@ -75,7 +75,7 @@ app.get('/summoner/:name', function(req, res) {
         json: true,
       }, function(err, response, body) {
         res.status(200).send(body);
-      })
+      });
       // res.status(200).send(body);
     // }
     // else
