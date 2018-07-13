@@ -169,7 +169,7 @@ window.onload = function() {
               }
                   summonerSpell1 = matchData.participants[tempUsernameID].spell1Id;
                   summonerSpell2 = matchData.participants[tempUsernameID].spell12d;
-                  gameDuration = matchData.gameDuration / 60;
+                  gameDurationMinutes = matchData.gameDuration / 60;
                   championLevel = matchData.participants[tempUsernameID].stats.champLevel;
                   totalCS = matchData.participants[tempUsernameIDp].stats.totalMinionsKilled;
                   gameKills = matchData.participants[tempUsernameID].stats.kills;
@@ -183,15 +183,15 @@ window.onload = function() {
                   }
 
                   kdaStat = (gameKills + gameAssists) / gameDeaths;
-                  csPM = (totalCS/ gameDuration);
+                  csPM = (totalCS/ gameDurationM\);
                   // let tempHeaderLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
                   // document.getElementById(tempHeaderLabel).innerHTML = "Result: " + winCondition + " - Duration: " + gameDuration + " Minutes";
-                  // console.log("Result: " + winCondition + " - Duration: " + gameDuration + " Minutes");
+                  console.log("Result: " + winCondition + " - Duration: " + gameDurationMinutes + " Minutes");
                   // let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
                   // document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
-                  // console.log("Total CS: " + totalCS + " - CS/Minute: " + csPM);
-                  // console.log(matchData.participants[k]);
-                  console.log("monkey brains");
+                  console.log("Total CS: " + totalCS + " - CS/Minute: " + csPM);
+                  console.log(matchData.participants[k]);
+                  // console.log("monkey brains");
               // championList = data;
               // for (i = 0; i < data.length; i++ ) {
                 // championList
