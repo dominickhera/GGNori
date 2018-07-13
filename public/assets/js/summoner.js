@@ -36,10 +36,11 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
     success: function(data) {
       console.log(data);
       document.getElementById("demo2").innerHTML = data;
-      for (i=1; i < data.length + 1; i++) {
+      for (i=1; i < data.matches.length + 1; i++) {
         // for(let match of data) {
-          let tempLabel = "champAndLevelLabel" + i
-          document.getElementById(tempLabel).innerHTML = "Champion Played: " + data.matches[i-1].champion + " - Time/Lenth: " + data.matches[i-1].timestamp;
+          console.log(data.matches[i-1].champion);
+          // let tempLabel = "champAndLevelLabel" + i
+          // document.getElementById(tempLabel).innerHTML = "Champion Played: " + data.matches[i-1].champion + " - Time/Lenth: " + data.matches[i-1].timestamp;
         }
 
   //       // cryptoArray.push(data[i]);
