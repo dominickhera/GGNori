@@ -96,7 +96,7 @@ var matchList = [];
           d.setUTCSeconds(utcSeconds);
           matchList = data;
           // console.log(tempLabel);
-          let userChampionName = championList[data.matches[i].champion].name 
+          let userChampionName = championList.data[data.matches[i].champion].name 
           // document.getElementById(tempLabel).innerHTML = "Match Length: " + <br> "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
 
            // var championList = []
