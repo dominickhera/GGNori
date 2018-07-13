@@ -99,7 +99,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
             dataType: "json",
 
             success: function(championNameData) {
-              champName = championNameData;
+              champName = championNameData.name;
               // for (i = 0; i < data.length; i++ ) {
                 // championList
               // }
@@ -112,7 +112,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
                 }
           });
           // console.log(tempLabel);
-          document.getElementById(tempLabel).innerHTML = "Champion Played: " + champName.name + " - Date: " + d;
+          document.getElementById(tempLabel).innerHTML = "Champion Played: " + champName + " - Date: " + d;
           matchList = data.matches;
            // var championList = []
            var gameDuration = 0;
