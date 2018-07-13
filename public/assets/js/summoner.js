@@ -48,6 +48,29 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
         }
   });
 
+
+    var itemList = []
+    $.ajax({
+    url: "/champions/",
+    type: 'get',
+  //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
+  // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
+    dataType: "json",
+
+    success: function(data) {
+      itemList = data;
+      // for (i = 0; i < data.length; i++ ) {
+        // championList
+      // }
+
+    },
+        fail: function(error) {
+            
+            // Non-200 return, do something with error
+            console.log(error); 
+        }
+  });
+
   $.ajax({
     url: "/summoner/" + tempUsername,
     type: 'get',
