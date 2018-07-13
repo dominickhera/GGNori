@@ -13,6 +13,7 @@
     "kerberos": "~0.0.x",
     "parse": "~1.8.0",
     "riot-api-nodejs": "*",
+    "irelia": "*",
     "parse-server": "*"
   },
   "scripts": {
