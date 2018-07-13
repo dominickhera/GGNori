@@ -135,8 +135,10 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
                   csPM = (totalCS/ gameDuration);
                   let tempHeaderLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
                   document.getElementById(tempHeaderLabel).innerHTML = "Result: " + winCondition + " - Duration: " + gameDuration + " Minutes";
+                  console.log("Result: " + winCondition + " - Duration: " + gameDuration + " Minutes");
                   let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
                   document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
+                  console.log("Total CS: " + totalCS + " - CS/Minute: " + csPM);
                   // console.log(matchData.participants[k]);
                 }
               }
