@@ -10,7 +10,7 @@ query.split("&").forEach(function(part) {
 });
 console.log(result.userName);
 var tempUsername = result.userName;
-document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
+document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
 
 // window.onload = function() {
 // var query = location.search.substr(1);
@@ -26,7 +26,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
   // var summonerUserName = urlSearch.searchParams.get("userName");
   // console.log(urlParse);
   // var searchUrl = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + tempUsername + "?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
-    var championList = [];
+    var championList = []
     $.ajax({
     url: "/champions/",
     type: 'get',
@@ -90,14 +90,13 @@ var matchList = [];
         // for(let match of data) {
           console.log(data.matches[i].champion);
           let tempLabel = "champAndLevelLabel" + (i + 1);
-          // let innerTempLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
+          let innerTempLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
           let utcSeconds = data.matches[i].timestamp;
           let d = new Date(0); 
           d.setUTCSeconds(utcSeconds);
           matchList = data;
           // console.log(tempLabel);
-          // let userChampionName = championList.data[data.matches[i].champion].name 
-          document.getElementById(tempLabel).innerHTML = "Match Length: " + <br> "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
+          // document.getElementById(tempLabel).innerHTML = "Match Length: " + <br> "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
 
            // var championList = []
             $.ajax({
@@ -109,45 +108,44 @@ var matchList = [];
 
             success: function(data) {
               let userMatchID = 0;
-            for (k = 0; k < data.participantIdentities.length; k++){
-                if(data.participantIdentities[k].player.summonerName == tempUsername) {
+            for (k = 0; k < data.participationIdentities.length; k++){
+                if(data.participationIdentities[k].player.summonerName == tempUsername) {
                 //   let userMatchID = k + 1;
                      userMatchID = k + 1;
                    }
                 }
-                  // let spell1 = data.participants[userMatchID - 1].spell1Id;
-                  // let spell2 = data.participants[ userMatchID - 1].spell2Id;
-                  // let championLevel = data.participants[userMatchID - 1].stats.champLevel;
-                  // let totalCS = data.participants[userMatchID - 1].stats.totalMinionsKilled;
-                  // let winCondition = "";
-                  // let kdaStat = (data.participants[userMatchID - 1].stats.kills + data.participants[userMatchID - 1].stats.assists) / data.participants[userMatchID - 1].stats.deaths;
-                  // let csPM = totalCS / (data.gameDuration / 60;);
-                  // if (data.participants[k].stats.win == true) {
-                      // winCondition.innerHTML = "Win";
-                  // } else {
-                      // winCondition.innerHTML = "Loss";
-                  // }
-                  // let tempTableName = "itemBuild" + (k + 1);
-                  // var tempTable = document.getElementById(tempTableName);
-                  // var itemBuild = [];
-                  // for(m = 0; m < 6; m++) {
-                    // let tempName = "item" + m;
-                    // let tempRow = tempTable.insertRow(m+1);
-                    // let tempCell = tempRow.insertCell(0);
-                    // tempCell.innerHTML = itemList.data[data.participants[k].stats.tempName].name
-                    // itemBuild.push(data.participants[k].stats.tempName);
-                  // }
+                  let spell1 = data.participants[userMatchID - 1].spell1Id;
+                  let spell2 = data.participants[ userMatchID - 1].spell2Id;
+                  let championLevel = data.participants[userMatchID - 1].stats.champLevel;
+                  let totalCS = data.participants[userMatchID - 1].stats.totalMinionsKilled;
+                  let winCondition = "";
+                  let kdaStat = (data.participants[userMatchID - 1].stats.kills + data.participants[userMatchID - 1].stats.assists) / data.participants[userMatchID - 1].stats.deaths;
+                //   let csPM = totalCS / (data.gameDuration / 60;);
+                //   if (data.participants[k].stats.win == true) {
+                //       winCondition.innerHTML = "Win";
+                //   } else {
+                //       winCondition.innerHTML = "Loss";
+                //   }
+                //   let tempTableName = "itemBuild" + (k + 1);
+                //   var tempTable = document.getElementById(tempTableName);
+                //   // var itemBuild = [];
+                //   for(m = 0; m < 6; m++) {
+                //     let tempName = "item" + m;
+                //     let tempRow = tempTable.insertRow(m+1);
+                //     let tempCell = tempRow.insertCell(0);
+                //     tempCell.innerHTML = itemList.data[data.participants[k].stats.tempName].name
+                //     // itemBuild.push(data.participants[k].stats.tempName);
+                //   }
 
-                  // let gameDuration = data.gameDuration / 60;
-                  // let tempLabel = "champAndLevelLabel" + (i + 1);
-                  // document.getElementById(tempLabel).innerHTML = "Outcome: Match Length: minutes" <br> "Champion Played: " + userChampionName + " - Date: " + d;
+                //   let gameDuration = data.gameDuration / 60;
+                  document.getElementById(tempLabel).innerHTML = "Outcome: "+ winCondition + "Match Length: " +  gameDuration + " minutes" <br> "Champion Played: " + championList.data[matchList.matches[i].champion].name + " - Date: " + d;
                 //   // for (i = 0; i < data.length; i++ ) {
                 //     // championList
                 //   // }
-                  // let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
-                  // document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
+                //   let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
+                //   document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
 
-                  // document.getElementById(innerTempLabel).innerHTML = championList.data[matchList.matches[i].champion].name + " - Level: " + champLevel;
+                //   // document.getElementById(innerTempLabel).innerHTML = championList.data[matchList.matches[i].champion].name + " - Level: " + champLevel;
 
                 // }
             // }
