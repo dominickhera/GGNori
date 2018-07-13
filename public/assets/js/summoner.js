@@ -94,6 +94,17 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
           document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
           matchList = data.matches;
            // var championList = []
+           var gameDuration = 0;
+           var summonerSpell1 = "";
+           var summonerSpell2 = "";
+           var championLevel = 0;
+           var totalCS = 0;
+           var csPM = 0;
+           var winCondition = "";
+           var gameKills = 0;
+           var gameAssists = 0;
+           var gameDeaths = 0;
+           var kdaStat = 0;
             $.ajax({
             url: "/matchInfo/"+ data.matches[i].gameId,
             type: 'get',
@@ -106,14 +117,34 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
 
               for (k=0; k < matchData.participantIdentities.length; k++){ 
                 if (matchData.participantIdentities[k].player.summonerName == tempUsername) {
-                  console.log(matchData.participants[k]);
+                  summonerSpell1 = matchData.participants[k].spell1Id;
+                  summonerSpell2 = matchData.participants[k].spell12d;
+                  gameDuration = matchData.gameDuration / 60;
+                  championLevel = matchData.participants[k].stats.champLevel;
+                  totalCS = matchData.participants[k].stats.totalMinionsKilled;
+                  gameKills = matchData.participants[k].stats.kills;
+                  gameDeaths = matchData.participants[k].stats.deaths;
+                  gameAssists = matchData.participants[k].stats.assists;
+
+                  if(matchData.participants[k].stats.win == true) {
+                    winCondition = "Win";
+                  } else {
+                    winCondition = "Loss";
+                  }
+                  kdaStat = (gameKills + gameAssists) / gameDeaths;
+                  csPM = (totalCS/ gameDuration);
+                  let tempHeaderLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
+                  document.getElementById(tempHeaderLabel).innerHTML = "Result: " + winCondition + " - Duration: " + gameDuration + " Minutes";
+                  let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
+                  document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
+                  // console.log(matchData.participants[k]);
                 }
               }
               // championList = data;
               // for (i = 0; i < data.length; i++ ) {
                 // championList
               // }
-              // let tempLabel = "champAndLevelLabel" + (i + 1);
+              // let tempLabel = "innerChampionPlayedAndLevelLabel1" + (i + 1);
                // document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
 
             },
