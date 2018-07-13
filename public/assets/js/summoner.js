@@ -106,7 +106,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
 
               for (k=0; k < matchData.participantIdentities.length; k++){ 
                 if (matchData.participantIdentities[k].player.summonerName == tempUsername) {
-                  console.log(matchData.participantIdentities[k]);
+                  console.log(matchData.participants[k]);
                 }
               }
               // championList = data;
