@@ -12,6 +12,23 @@ console.log(result.userName);
 var tempUsername = result.userName;
 document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
 
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+
+
 // window.onload = function() {
 // var query = location.search.substr(1);
 // var result = {};
@@ -206,20 +223,20 @@ console.log(window.location.href);
 
 // }
 
-var acc = document.getElementsByClassName("accordion");
-var i;
+// var acc = document.getElementsByClassName("accordion");
+// var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight){
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  });
-}
+// for (i = 0; i < acc.length; i++) {
+//   acc[i].addEventListener("click", function() {
+//     this.classList.toggle("active");
+//     var panel = this.nextElementSibling;
+//     if (panel.style.maxHeight){
+//       panel.style.maxHeight = null;
+//     } else {
+//       panel.style.maxHeight = panel.scrollHeight + "px";
+//     } 
+//   });
+// }
 
 function forceSetName() {
   var query = location.search.substr(1);
