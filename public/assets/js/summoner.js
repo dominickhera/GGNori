@@ -43,7 +43,7 @@ for (i = 0; i < acc.length; i++) {
   // var summonerUserName = urlSearch.searchParams.get("userName");
   // console.log(urlParse);
   // var searchUrl = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + tempUsername + "?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
-    var championList = []
+    var championList = [];
     $.ajax({
     url: "/champions/",
     type: 'get',
