@@ -12,7 +12,7 @@ console.log(result.userName);
 var tempUsername = result.userName;
 document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
 
-// window.onload = function() {
+window.onload = function() {
 // var query = location.search.substr(1);
 // var result = {};
 // query.split("&").forEach(function(part) {
@@ -213,7 +213,7 @@ console.log(window.location.href);
 // console.log("lolbfadsljfakldsfj")
 // document.getElementById("demo").innerHTML = "The full URL of this page is:<br>" + window.location.href;
 
-// }
+}
 
 var acc = document.getElementsByClassName("accordion");
 var i;
