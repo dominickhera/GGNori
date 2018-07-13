@@ -107,6 +107,7 @@ var matchList = [];
             dataType: "json",
 
             success: function(data) {
+              console.log(data);
               let userMatchID = 0;
             for (k = 0; k < data.participantIdentities.length; k++){
                 if(data.participantIdentities[k].player.summonerName == tempUsername) {
