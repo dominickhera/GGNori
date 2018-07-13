@@ -10,7 +10,7 @@ query.split("&").forEach(function(part) {
 });
 console.log(result.userName);
 var tempUsername = result.userName;
-document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
+document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
 
 // window.onload = function() {
 // var query = location.search.substr(1);
@@ -26,7 +26,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
   // var summonerUserName = urlSearch.searchParams.get("userName");
   // console.log(urlParse);
   // var searchUrl = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + tempUsername + "?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
-    var championList = []
+    var championList = [];
     $.ajax({
     url: "/champions/",
     type: 'get',
@@ -49,27 +49,27 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
   });
 
 
-    var itemList = []
-    $.ajax({
-    url: "/champions/",
-    type: 'get',
-  //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
-  // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
-    dataType: "json",
+  //   var itemList = []
+  //   $.ajax({
+  //   url: "/champions/",
+  //   type: 'get',
+  // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
+  // // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
+  //   dataType: "json",
 
-    success: function(data) {
-      itemList = data;
-      // for (i = 0; i < data.length; i++ ) {
-        // championList
-      // }
+  //   success: function(data) {
+  //     itemList = data;
+  //     // for (i = 0; i < data.length; i++ ) {
+  //       // championList
+  //     // }
 
-    },
-        fail: function(error) {
+  //   },
+  //       fail: function(error) {
             
-            // Non-200 return, do something with error
-            console.log(error); 
-        }
-  });
+  //           // Non-200 return, do something with error
+  //           console.log(error); 
+  //       }
+  // });
 
   var matchList = [];
   $.ajax({
