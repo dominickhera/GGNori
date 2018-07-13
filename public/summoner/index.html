@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Battlefy Lol Stat Dom Hera</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.2.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <!-- <script defer src="/__/firebase/5.2.0/firebase-auth.js"></script> -->
+    <!-- <script defer src="/__/firebase/5.2.0/firebase-database.js"></script> -->
+    <!-- <script defer src="/__/firebase/5.2.0/firebase-messaging.js"></script> -->
+    <!-- <script defer src="/__/firebase/5.2.0/firebase-storage.js"></script> -->
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script scriptc="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 800px; margin: 60px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message2 { background: white; max-width: 800px; margin: 0px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; max-width: 400px }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #message2 h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message2 h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message2 p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message2 a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; max-width: 400px }
+      #message2, #message2 a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+
+      * {
+          box-sizing: border-box;
+        }
+
+        /* Style the search field */
+        form.summonerSearchForm input[type=text] {
+          padding: 10px;
+          font-size: 17px;
+          border: 1px solid grey;
+          float: left;
+          width: 80%;
+          background: #f1f1f1;
+        }
+
+        /* Style the submit button */
+        form.summonerSearchForm button {
+          float: left;
+          width: 20%;
+          padding: 10px;
+          background: #2196F3;
+          color: white;
+          font-size: 17px;
+          border: 1px solid grey;
+          border-left: none; /* Prevent double borders */
+          cursor: pointer;
+          height: 40px;
+        }
+
+        form.summonerSearchForm button:hover {
+          background: #0b7dda;
+        }
+
+        /* Clear floats */
+        form.summonerSearchForm::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            height: 100px;
+            font-weight: bold;
+            width: 100%;
+            line-height: 150%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .active, .accordion:hover {
+            background-color: #ccc;
+        }
+
+
+        .panel {
+            padding: 0 30px;
+            background-color: #F8ECE0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            /*text-align: left;*/
+            padding: 10px;
+            margin-bottom: 10px;
+
+        }
+        th, td {
+            padding: 15px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            align-self: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+        img {
+            border-radius: 5px 5px 0 0;
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+    </style>
+  </head>
+  <body onload="forceSetName()" onsort="forceSetName()">
+    <div id="message">
+      <h2>Summoner</h2>
+      <h1>Battlefy Dominick Hera Work Sample</h1>
+      <p>Enter your username to see your League results!</p>
+      <!-- <p>Username: </p> -->
+      <p  id="demo">test</p>
+       <form id="summonerSearchForm" class="summonerSearchForm" action="" target="_self">
+        <input type="text" id="summonerUserName" placeholder="Search..." name="userName">
+        <button type="submit">Search</button>
+      </form>
+      <!-- <input type="text" class="form-control-plaintext text"> -->
+      <!-- <a target="_blank" href="https://firebase.google.com/docs/hosting/">Search</a> -->
+    </div>
+    <div id="message2">
+      <h1 id="summonerUserNameLabel">Username</h1>
+      <!-- <h2 id="summonerKDA">KDA</h2> -->
+      <!-- <h5>Enter your username to see your League results!</h5> -->
+      <p  id="demo2">test</p>
+      <button class="accordion">Win Condition - Match Length <br> Champion Played - KDA </button>
+      <div class="panel"style="text-align: center;">
+        <div class="card" style="left: auto;right: auto;">
+          <!-- <img src="img_avatar2.png" alt="Avatar" style="width:100%"> -->
+          <div class="container">
+            <h4><b>Champion Played - Level (Champion Level)</b></h4> 
+            <p>Total Creep Score - Creep Score per Minute</p> 
+            <p>SummonerSpell1 - SummonerSpell2</p> 
+          </div>
+        </div>
+        <table style="width:100%">
+            <tr>
+              <th>Items Bought During Match</th>
+            </tr>
+            <tr>
+              <td>Jill</td>
+              <!-- <td>Smith</td> -->
+              <!-- <td>50</td> -->
+            </tr>
+            <tr>
+              <td>Eve</td>
+              <!-- <td>Jackson</td> -->
+              <!-- <td>94</td> -->
+            </tr>
+            <tr>
+              <td>John</td>
+
+            </tr>
+          </table>
+      </div>
+       <button class="accordion">Match 2 <br> lol</button>
+      <div class="panel"style="text-align: center;">
+        <div class="card" style="left: auto;right: auto;">
+          <!-- <img src="img_avatar2.png" alt="Avatar" style="width:100%"> -->
+          <div class="container">
+            <h4><b>Champion Played - Level (Champion Level)</b></h4> 
+            <p>Total Creep Score - Creep Score per Minute</p> 
+            <p>SummonerSpell1 - SummonerSpell2</p> 
+          </div>
+        </div>
+        <table style="width:100%">
+            <tr>
+              <th>Items Bought During Match</th>
+            </tr>
+            <tr>
+              <td>Jill</td>
+              <!-- <td>Smith</td> -->
+              <!-- <td>50</td> -->
+            </tr>
+            <tr>
+              <td>Eve</td>
+              <!-- <td>Jackson</td> -->
+              <!-- <td>94</td> -->
+            </tr>
+            <tr>
+              <td>John</td>
+
+            </tr>
+          </table>
+      </div>
+       <button class="accordion">Match 3</button>
+      <div class="panel"style="text-align: center;">
+        <div class="card" style="left: auto;right: auto;">
+          <!-- <img src="img_avatar2.png" alt="Avatar" style="width:100%"> -->
+          <div class="container">
+            <h4><b>Champion Played - Level (Champion Level)</b></h4> 
+            <p>Total Creep Score - Creep Score per Minute</p> 
+            <p>SummonerSpell1 - SummonerSpell2</p> 
+          </div>
+        </div>
+        <table style="width:100%">
+            <tr>
+              <th>Items Bought During Match</th>
+            </tr>
+            <tr>
+              <td>Jill</td>
+              <!-- <td>Smith</td> -->
+              <!-- <td>50</td> -->
+            </tr>
+            <tr>
+              <td>Eve</td>
+              <!-- <td>Jackson</td> -->
+              <!-- <td>94</td> -->
+            </tr>
+            <tr>
+              <td>John</td>
+
+            </tr>
+          </table>
+      </div>
+       <button class="accordion">Match 4</button>
+     <div class="panel"style="text-align: center;">
+        <div class="card" style="left: auto;right: auto;">
+          <!-- <img src="img_avatar2.png" alt="Avatar" style="width:100%"> -->
+          <div class="container">
+            <h4><b>Champion Played - Level (Champion Level)</b></h4> 
+            <p>Total Creep Score - Creep Score per Minute</p> 
+            <p>SummonerSpell1 - SummonerSpell2</p> 
+          </div>
+        </div>
+        <table style="width:100%">
+            <tr>
+              <th>Items Bought During Match</th>
+            </tr>
+            <tr>
+              <td>Jill</td>
+              <!-- <td>Smith</td> -->
+              <!-- <td>50</td> -->
+            </tr>
+            <tr>
+              <td>Eve</td>
+              <!-- <td>Jackson</td> -->
+              <!-- <td>94</td> -->
+            </tr>
+            <tr>
+              <td>John</td>
+
+            </tr>
+          </table>
+      </div>
+       <button class="accordion">Match 5</button>
+      <div class="panel"style="text-align: center;">
+        <div class="card" style="left: auto;right: auto;">
+          <!-- <img src="img_avatar2.png" alt="Avatar" style="width:100%"> -->
+          <div class="container">
+            <h4><b>Champion Played - Level (Champion Level)</b></h4> 
+            <p>Total Creep Score - Creep Score per Minute</p> 
+            <p>SummonerSpell1 - SummonerSpell2</p> 
+          </div>
+        </div>
+        <table style="width:100%">
+            <tr>
+              <th>Items Bought During Match</th>
+            </tr>
+            <tr>
+              <td>Jill</td>
+              <!-- <td>Smith</td> -->
+              <!-- <td>50</td> -->
+            </tr>
+            <tr>
+              <td>Eve</td>
+              <!-- <td>Jackson</td> -->
+              <!-- <td>94</td> -->
+            </tr>
+            <tr>
+              <td>John</td>
+
+            </tr>
+          </table>
+      </div>
+       <button class="accordion">Match 6</button>
+      <div class="panel"style="text-align: center;">
+        <div class="card" style="left: auto;right: auto;">
+          <!-- <img src="img_avatar2.png" alt="Avatar" style="width:100%"> -->
+          <div class="container">
+            <h4><b>Champion Played - Level (Champion Level)</b></h4> 
+            <p>Total Creep Score - Creep Score per Minute</p> 
+            <p>SummonerSpell1 - SummonerSpell2</p> 
+          </div>
+        </div>
+        <table style="width:100%">
+            <tr>
+              <th>Items Bought During Match</th>
+            </tr>
+            <tr>
+              <td>Jill</td>
+              <!-- <td>Smith</td> -->
+              <!-- <td>50</td> -->
+            </tr>
+            <tr>
+              <td>Eve</td>
+              <!-- <td>Jackson</td> -->
+              <!-- <td>94</td> -->
+            </tr>
+            <tr>
+              <td>John</td>
+
+            </tr>
+          </table>
+      </div>
+       <button class="accordion">Match 7</button>
+      <div class="panel"style="text-align: center;">
+        <div class="card" style="left: auto;right: auto;">
+          <!-- <img src="img_avatar2.png" alt="Avatar" style="width:100%"> -->
+          <div class="container">
+            <h4><b>Champion Played - Level (Champion Level)</b></h4> 
+            <p>Total Creep Score - Creep Score per Minute</p> 
+            <p>SummonerSpell1 - SummonerSpell2</p> 
+          </div>
+        </div>
+        <table style="width:100%">
+            <tr>
+              <th>Items Bought During Match</th>
+            </tr>
+            <tr>
+              <td>Jill</td>
+              <!-- <td>Smith</td> -->
+              <!-- <td>50</td> -->
+            </tr>
+            <tr>
+              <td>Eve</td>
+              <!-- <td>Jackson</td> -->
+              <!-- <td>94</td> -->
+            </tr>
+            <tr>
+              <td>John</td>
+
+            </tr>
+          </table>
+      </div>
+       <button class="accordion">Match 8</button>
+     <div class="panel"style="text-align: center;">
+        <div class="card" style="left: auto;right: auto;">
+          <!-- <img src="img_avatar2.png" alt="Avatar" style="width:100%"> -->
+          <div class="container">
+            <h4><b>Champion Played - Level (Champion Level)</b></h4> 
+            <p>Total Creep Score - Creep Score per Minute</p> 
+            <p>SummonerSpell1 - SummonerSpell2</p> 
+          </div>
+        </div>
+        <table style="width:100%">
+            <tr>
+              <th>Items Bought During Match</th>
+            </tr>
+            <tr>
+              <td>Jill</td>
+              <!-- <td>Smith</td> -->
+              <!-- <td>50</td> -->
+            </tr>
+            <tr>
+              <td>Eve</td>
+              <!-- <td>Jackson</td> -->
+              <!-- <td>94</td> -->
+            </tr>
+            <tr>
+              <td>John</td>
+
+            </tr>
+          </table>
+      </div>
+       <button class="accordion">Match 9</button>
+      <div class="panel"style="text-align: center;">
+        <div class="card" style="left: auto;right: auto;">
+          <!-- <img src="img_avatar2.png" alt="Avatar" style="width:100%"> -->
+          <div class="container">
+            <h4><b>Champion Played - Level (Champion Level)</b></h4> 
+            <p>Total Creep Score - Creep Score per Minute</p> 
+            <p>SummonerSpell1 - SummonerSpell2</p> 
+          </div>
+        </div>
+        <table style="width:100%">
+            <tr>
+              <th>Items Bought During Match</th>
+            </tr>
+            <tr>
+              <td>Jill</td>
+              <!-- <td>Smith</td> -->
+              <!-- <td>50</td> -->
+            </tr>
+            <tr>
+              <td>Eve</td>
+              <!-- <td>Jackson</td> -->
+              <!-- <td>94</td> -->
+            </tr>
+            <tr>
+              <td>John</td>
+
+            </tr>
+          </table>
+      </div>
+       <button class="accordion">Match 10</button>
+      <div class="panel"style="text-align: center;">
+        <div class="card" style="left: auto;right: auto;">
+          <!-- <img src="img_avatar2.png" alt="Avatar" style="width:100%"> -->
+          <div class="container">
+            <h4><b>Champion Played - Level (Champion Level)</b></h4> 
+            <p>Total Creep Score - Creep Score per Minute</p> 
+            <p>SummonerSpell1 - SummonerSpell2</p> 
+          </div>
+        </div>
+        <table style="width:100%">
+            <tr>
+              <th>Items Bought During Match</th>
+            </tr>
+            <tr>
+              <td>Jill</td>
+              <!-- <td>Smith</td> -->
+              <!-- <td>50</td> -->
+            </tr>
+            <tr>
+              <td>Eve</td>
+              <!-- <td>Jackson</td> -->
+              <!-- <td>94</td> -->
+            </tr>
+            <tr>
+              <td>John</td>
+
+            </tr>
+          </table>
+      </div>
+
+
+
+      <!-- <p>Username: </p> -->
+      <!-- <input type="text" id="summonerUserName" class="form-control-plaintext text"> -->
+     <!--  <form class="summonerSearchForm" action="action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit">Search<i class="fa fa-search"></i></button>
+      </form> -->
+      <!-- <input type="text" name="search" placeholder="Summoner Name.."> -->
+      <!-- <br></br> -->
+      <!-- <button id="summonerSearchButton">test button</button> -->
+      <!-- <a  target="_self" href="https://firebase.google.com/docs/hosting/">Search</a> -->
+    </div>
+  
+    <!-- <script src="//code.jquery.com/jquery-3.3.1.min.js"></script> -->
+    <script src="index.js"></script>
+    <script type="text/javascript">document.getElementById("demo").innerHTML = "The full URL of this page is:<br>" + window.location.href;</script>
+  </body>
+</html>

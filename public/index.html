@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Battlefy Lol Stat Dom Hera</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script scriptc="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.2.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 800px; margin: 60px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; max-width: 100% }
+      /*#message p { text-align: center; }*/
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+  * {
+      box-sizing: border-box;
+    }
+
+    /* Style the search field */
+    form.summonerSearchForm input[type=text] {
+      padding: 10px;
+      font-size: 17px;
+      border: 1px solid grey;
+      float: left;
+      width: 80%;
+      background: #f1f1f1;
+    }
+
+    /* Style the submit button */
+    form.summonerSearchForm button {
+      float: left;
+      width: 20%;
+      padding: 10px;
+      background: #2196F3;
+      color: white;
+      font-size: 17px;
+      border: 1px solid grey;
+      border-left: none; /* Prevent double borders */
+      cursor: pointer;
+      height: 40px;
+    }
+
+    form.summonerSearchForm button:hover {
+      background: #0b7dda;
+    }
+
+/* Clear floats */
+form.summonerSearchForm::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+    </style>
+  </head>
+  <body>
+    <!-- <p id="demo">hiya</p> -->
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Battlefy Dominick Hera Work Sample</h1>
+      <h5>Enter your username to see your League results!</h5>
+      <p  id="demo">test</p>
+      <!-- <p>Username: </p> -->
+      <!-- <input type="text" id="summonerUserName" class="form-control-plaintext text"> -->
+      <form id="summonerSearchForm" class="summonerSearchForm" action="summoner" target="_self">
+        <input type="text" id="summonerUserName" placeholder="Search..." name="userName">
+        <button type="submit">Search</button>
+      </form>
+      <!-- <input type="text" name="search" placeholder="Summoner Name.."> -->
+      <!-- <br></br> -->
+      <!-- <button id="summonerSearchButton">test button</button> -->
+      <!-- <a  target="_self" href="https://firebase.google.com/docs/hosting/">Search</a> -->
+    </div>
+    <!-- <script src="ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+    <!-- <script src="//code.jquery.com/jquery-3.3.1.min.js"></script> -->
+    <!-- <script src="index.js"></script> -->
+    <!-- <script>
+document.getElementById("demo").innerHTML = 
+"The full URL of this page is:<br>" + window.location.href;
+</script> -->
+<!-- <script src="index.js"></script> -->
+<script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
