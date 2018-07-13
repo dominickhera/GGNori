@@ -64,8 +64,8 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
           let tempLabel = "champAndLevelLabel" + (i + 1);
           let innerTempLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
           // console.log(tempLabel);
-          document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList[data.matches[i].champion] + " - Time/Length: " + data.matches[i].timestamp;
-          document.getElementById(innerTempLabel).innerHTML = "Champion Played: " + championList[data.matches[i].champion] + " - Time/Length: " + data.matches[i].timestamp;
+          document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].id + " - Time/Length: " + data.matches[i].timestamp;
+          document.getElementById(innerTempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].id + " - Time/Length: " + data.matches[i].timestamp;
         }
 
   //       // cryptoArray.push(data[i]);
