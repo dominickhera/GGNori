@@ -142,7 +142,7 @@ var matchList = [];
                   let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
                   document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
 
-                  document.getElementById(innerTempLabel).innerHTML = championList.data[matchList.matches[i].champion].name + " - Level: " + champLevel;
+                  // document.getElementById(innerTempLabel).innerHTML = championList.data[matchList.matches[i].champion].name + " - Level: " + champLevel;
 
                 }
             }
