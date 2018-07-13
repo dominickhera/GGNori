@@ -14,6 +14,7 @@
     "parse": "~1.8.0",
     "riot-api-nodejs": "*",
     "irelia": "*",
+    "request": "*",
     "parse-server": "*"
   },
   "scripts": {

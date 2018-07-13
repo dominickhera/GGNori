@@ -2,6 +2,7 @@
 // compatible API routes.
 var riot = require("riot-api-nodejs");
 var Irelia = require('irelia');
+var request = require('request');
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
@@ -62,11 +63,16 @@ app.get('/summoner/:name', function(req, res) {
     // {},
     // console.log
 // ));
-  irelia.getSummonerByName('na', req.params.name, function(err, result) {
-    // console.log(err, res);
-    res.status(200).send(result);
+  var url = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + req.params.name + "?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
+  request({
+    url: url,
+    json: true
+  }, function (err, response, body) {
+    if(!error && response.statusCode === 200) {
+      res.status(200).send(body);
+    }
   });
-  // res.status(200).send(req.params.name);
+  res.status(200).send(req.params.name);
   // res.status(200).sendFile(path.join(__dirname+'/public/test.html'));
 });
 // There will be a test page available on the /test path of your server url
