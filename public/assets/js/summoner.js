@@ -49,7 +49,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
   });
 
 
-    var itemList = []
+    var itemList = [];
     $.ajax({
     url: "/items/",
     type: 'get',
