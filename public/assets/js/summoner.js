@@ -189,7 +189,8 @@ window.onload = function() {
                   // let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
                   // document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
                   // console.log("Total CS: " + totalCS + " - CS/Minute: " + csPM);
-                  console.log(matchData.participants[k]);
+                  // console.log(matchData.participants[k]);
+                  console.log("monkey brains");
               // championList = data;
               // for (i = 0; i < data.length; i++ ) {
                 // championList
