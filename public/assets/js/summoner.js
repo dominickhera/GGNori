@@ -90,7 +90,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
           let utcSeconds = data.matches[i].timestamp;
           let d = new Date(0); 
           d.setUTCSeconds(utcSeconds);
-          var champName = "";
+          let champName = "";
           $.ajax({
             url: "/champions/" + data.matches[i].champion,
             type: 'get',
@@ -115,17 +115,17 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
           document.getElementById(tempLabel).innerHTML = "Champion Played: " + champName + " - Date: " + d;
           matchList = data.matches;
            // var championList = []
-           var gameDuration = 0;
-           var summonerSpell1 = "";
-           var summonerSpell2 = "";
-           var championLevel = 0;
-           var totalCS = 0;
-           var csPM = 0;
-           var winCondition = "";
-           var gameKills = 0;
-           var gameAssists = 0;
-           var gameDeaths = 0;
-           var kdaStat = 0;
+           let gameDuration = 0;
+           let summonerSpell1 = "";
+           let summonerSpell2 = "";
+           let championLevel = 0;
+           let totalCS = 0;
+           let csPM = 0;
+           let winCondition = "";
+           let gameKills = 0;
+           let gameAssists = 0;
+           let gameDeaths = 0;
+           let kdaStat = 0;
             $.ajax({
             url: "/matchInfo/"+ data.matches[i].gameId,
             type: 'get',
