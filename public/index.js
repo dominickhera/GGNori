@@ -12,7 +12,7 @@ window.onload = function() {
 console.log("why");
 
 $.ajax({
-    url: "summoner/herasy",
+    url: "summoner/",
     type: 'GET',
     // beforeSend: function(xhr){xhr.setRequestHeader('Access-Control-Allow-Origin', '*');},
   //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
