@@ -108,7 +108,7 @@ var matchList = [];
 
             success: function(data) {
             for (k = 0; k < data.participationIdentities.length; k++){
-                if(data.participationIdentities[i].player.summonerName == tempUsername) {
+                if(data.participationIdentities[k].player.summonerName == tempUsername) {
                   let userMatchID = k + 1;
                   
                   let spell1 = data.participants[k].spell1Id;
