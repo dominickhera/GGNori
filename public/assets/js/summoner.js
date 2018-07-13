@@ -114,8 +114,8 @@ var matchList = [];
                   userMatchID = k + 1;
                   // console.log("k shit is " + k);
                      // userMatchID = k + 1;
-                   }
-                }
+                   // }
+                // }
                   let spell1 = data.participants[userMatchID - 1].spell1Id;
                   let spell2 = data.participants[ userMatchID - 1].spell2Id;
                   let championLevel = data.participants[userMatchID - 1].stats.champLevel;
@@ -156,8 +156,8 @@ var matchList = [];
 
                   // document.getElementById(innerTempLabel).innerHTML = championList.data[matchList.matches[i].champion].name + " - Level: " + champLevel;
 
-                // }
-            // }
+                }
+            }
 
 
               //  let gameDuration = data.gameDuration / 60;
