@@ -137,6 +137,7 @@ window.onload = function() {
 
             success: function(matchData) {
               console.log(matchData);
+              console.log(matchData.duration);
               let tempUsernameID = 0;
               for (k=0; k < matchData.participantIdentities.length; k++){ 
                 if (matchData.participantIdentities[k].player.summonerName == tempUsername) {
