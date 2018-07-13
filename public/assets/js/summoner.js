@@ -108,10 +108,10 @@ var matchList = [];
 
             success: function(data) {
               let userMatchID = 0;
-            for (k = 0; k < data.participationIdentities.length; k++){
-                if(data.participationIdentities[k].player.summonerName == tempUsername) {
-                //   let userMatchID = k + 1;
-                     userMatchID = k + 1;
+            for (k = 0; k < data.participantIdentities.length; k++){
+                if(data.participantIdentities[k].player.summonerName == tempUsername) {
+                  let userMatchID = k + 1;
+                     // userMatchID = k + 1;
                    }
                 }
                   let spell1 = data.participants[userMatchID - 1].spell1Id;
@@ -137,7 +137,7 @@ var matchList = [];
                 //     // itemBuild.push(data.participants[k].stats.tempName);
                 //   }
 
-                //   let gameDuration = data.gameDuration / 60;
+                  let gameDuration = data.gameDuration / 60;
                   document.getElementById(tempLabel).innerHTML = "Outcome: "+ winCondition + "Match Length: " +  gameDuration + " minutes" <br> "Champion Played: " + championList.data[matchList.matches[i].champion].name + " - Date: " + d;
                 //   // for (i = 0; i < data.length; i++ ) {
                 //     // championList
