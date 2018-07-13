@@ -39,7 +39,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
       for (i=1; i < data.length + 1; i++) {
         // for(let match of data) {
           let tempLabel = "champAndLevelLabel" + i
-          document.getElementById(tempLabel).innerHTML = "Champion Played: " + data[i-1].champion + " - Time/Lenth: " + data[i-1].timestamp;
+          document.getElementById(tempLabel).innerHTML = "Champion Played: " + data.matches[i-1].champion + " - Time/Lenth: " + data.matches[i-1].timestamp;
         }
 
   //       // cryptoArray.push(data[i]);
