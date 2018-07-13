@@ -129,17 +129,17 @@ var matchList = [];
                       winCondition = "Loss";
                   }
 
-                  let tempTableName = "itemBuild" + (k + 1);
-                  var tempTable = document.getElementById(tempTableName);
-                //   // var itemBuild = [];
-                  for(m = 0; m < 6; m++) {
-                    let tempName = "item" + m;
-                    let tempRow = tempTable.insertRow(m+1);
-                    let tempCell = tempRow.insertCell(0);
-                    tempCell.innerHTML = tempName;
-                    // itemList.data[data.participants[k].stats.tempName].name
-                //     // itemBuild.push(data.participants[k].stats.tempName);
-                  }
+                //   let tempTableName = "itemBuild" + (k + 1);
+                //   var tempTable = document.getElementById(tempTableName);
+                // //   // var itemBuild = [];
+                //   for(m = 0; m < 6; m++) {
+                //     let tempName = "item" + m;
+                //     let tempRow = tempTable.insertRow(m+1);
+                //     let tempCell = tempRow.insertCell(0);
+                //     tempCell.innerHTML = tempName;
+                //     // itemList.data[data.participants[k].stats.tempName].name
+                // //     // itemBuild.push(data.participants[k].stats.tempName);
+                //   }
 
                 console.log(spell1);
                 console.log(spell2);
