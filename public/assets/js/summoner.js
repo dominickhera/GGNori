@@ -117,17 +117,17 @@ window.onload = function() {
           document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
           matchList = data.matches;
            // var championList = []
-           let gameDuration = 0;
-           let summonerSpell1 = "";
-           let summonerSpell2 = "";
-           let championLevel = 0;
-           let totalCS = 0;
-           let csPM = 0;
-           let winCondition = "";
-           let gameKills = 0;
-           let gameAssists = 0;
-           let gameDeaths = 0;
-           let kdaStat = 0;
+           // let gameDuration = 0;
+           // let summonerSpell1 = "";
+           // let summonerSpell2 = "";
+           // let championLevel = 0;
+           // let totalCS = 0;
+           // let csPM = 0;
+           // let winCondition = "";
+           // let gameKills = 0;
+           // let gameAssists = 0;
+           // let gameDeaths = 0;
+           // let kdaStat = 0;
             $.ajax({
             url: "/matchInfo/"+ data.matches[i].gameId,
             type: 'get',
@@ -167,19 +167,30 @@ window.onload = function() {
                   // console.log(matchData.participants[k]);
                 }
               }
-                  summonerSpell1 = matchData.participants[tempUsernameID].spell1Id;
-                  summonerSpell2 = matchData.participants[tempUsernameID].spell12d;
-                  gameDurationMinutes = matchData.gameDuration / 60;
-                  championLevel = matchData.participants[tempUsernameID].stats.champLevel;
-                  totalCS = matchData.participants[tempUsernameIDp].stats.totalMinionsKilled;
-                  gameKills = matchData.participants[tempUsernameID].stats.kills;
-                  gameDeaths = matchData.participants[tempUsernameID].stats.deaths;
-                  gameAssists = matchData.participants[tempUsernameID].stats.assists;
+           let gameDurationMinutes = matchData.gameDuration / 60;
+           let summonerSpell1 = matchData.participants[tempUsernameID].spell1Id;;
+           let summonerSpell2 = matchData.participants[tempUsernameID].spell2Id;;
+           let championLevel = matchData.participants[tempUsernameID].stats.champLevel;
+           let totalCS = matchData.participants[tempUsernameIDp].stats.totalMinionsKilled;
+           let csPM = (totalCS / gameDurationMinutes);
+           // let winCondition = "";
+           let gameKills = matchData.participants[tempUsernameID].stats.kills;
+           let gameAssists = matchData.participants[tempUsernameID].stats.assists;
+           let gameDeaths = matchData.participants[tempUsernameID].stats.deaths;
+           let kdaStat = (gameKills + gameAssists) / gameDeaths;
+                  // summonerSpell1 = matchData.participants[tempUsernameID].spell1Id;
+                  // summonerSpell2 = matchData.participants[tempUsernameID].spell12d;
+                  // gameDurationMinutes = matchData.gameDuration / 60;
+                  // championLevel = matchData.participants[tempUsernameID].stats.champLevel;
+                  // totalCS = matchData.participants[tempUsernameIDp].stats.totalMinionsKilled;
+                  // gameKills = matchData.participants[tempUsernameID].stats.kills;
+                  // gameDeaths = matchData.participants[tempUsernameID].stats.deaths;
+                  // gameAssists = matchData.participants[tempUsernameID].stats.assists;
 
                   if(matchData.participants[tempUsernameID].stats.win == true) {
-                    winCondition = "Win";
+                    let winCondition = "Win";
                   } else {
-                    winCondition = "Loss";
+                   let winCondition = "Loss";
                   }
 
                   kdaStat = (gameKills + gameAssists) / gameDeaths;
