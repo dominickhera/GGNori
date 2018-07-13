@@ -1,6 +1,6 @@
 // Example express application adding the parse-server module to expose Parse
 // compatible API routes.
-var riotApi = require("riot-api-nodejs");
+var riot = require("riot-api-nodejs");
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
