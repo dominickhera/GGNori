@@ -90,7 +90,7 @@ var matchList = [];
         // for(let match of data) {
           console.log(data.matches[i].champion);
           let tempLabel = "champAndLevelLabel" + (i + 1);
-          let innerTempLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
+          // let innerTempLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
           let utcSeconds = data.matches[i].timestamp;
           let d = new Date(0); 
           d.setUTCSeconds(utcSeconds);
