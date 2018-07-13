@@ -101,6 +101,7 @@ window.onload = function() {
             success: function(championNameData) {
               champName = championNameData;
               console.log(champName);
+               document.getElementById(tempLabel).innerHTML = "Champion Played: " + champNameData.name + " - Date: " + d;
               // for (i = 0; i < data.length; i++ ) {
                 // championList
               // }
@@ -113,7 +114,7 @@ window.onload = function() {
                 }
           });
           // console.log(tempLabel);
-          document.getElementById(tempLabel).innerHTML = "Champion Played: " + champName + " - Date: " + d;
+          // document.getElementById(tempLabel).innerHTML = "Champion Played: " + champName + " - Date: " + d;
           matchList = data.matches;
            // var championList = []
            let gameDuration = 0;
