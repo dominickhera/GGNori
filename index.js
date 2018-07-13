@@ -1,10 +1,10 @@
 // Example express application adding the parse-server module to expose Parse
 // compatible API routes.
-// var riotApi = require("riot-api-nodejs");
+var riotApi = require("riot-api-nodejs");
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
-
+riot.developerKey = "RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
 if (!databaseUri) {
@@ -46,9 +46,14 @@ app.get('/summoner/', function(req, res) {
 });
 
 
-app.get('/summoner?userName=:name', function(req, res) {
-  // res.status(200).send(getSummonerByName(summonerName: req.params.name));
-  res.status(200).sendFile(path.join(__dirname+'/public/test.html'));
+app.get('/summoner/:name', function(req, res) {
+
+  res.status(200).send(riot.summoner.byName(
+    req.params.name, //or 'Dyrus,I DIED TO WOLVES,InsertSmurfHere'
+    {},
+    console.log
+));
+  // res.status(200).sendFile(path.join(__dirname+'/public/test.html'));
 })
 // There will be a test page available on the /test path of your server url
 // Remove this before launching your app
