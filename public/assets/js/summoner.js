@@ -89,7 +89,7 @@ var matchList = [];
       for (i=0; i < data.matches.length; i++) {
         // for(let match of data) {
           console.log(data.matches[i].champion);
-          // let tempLabel = "champAndLevelLabel" + (i + 1);
+          let tempLabel = "champAndLevelLabel" + (i + 1);
           let innerTempLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
           let utcSeconds = data.matches[i].timestamp;
           let d = new Date(0); 
@@ -99,19 +99,19 @@ var matchList = [];
           document.getElementById(tempLabel).innerHTML = "Match Length: " + <br> "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
 
            // var championList = []
-            $.ajax({
-            url: "/matchInfo/"+ data.matches[i].gameId,
-            type: 'get',
+            // $.ajax({
+            // url: "/matchInfo/"+ data.matches[i].gameId,
+            // type: 'get',
           //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
           // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
-            dataType: "json",
+            // dataType: "json",
 
-            success: function(data) {
-              let userMatchID = 0;
-            for (k = 0; k < data.participantIdentities.length; k++){
-                if(data.participantIdentities[k].player.summonerName == tempUsername) {
+            // success: function(data) {
+              // let userMatchID = 0;
+            // for (k = 0; k < data.participantIdentities.length; k++){
+                // if(data.participantIdentities[k].player.summonerName == tempUsername) {
                 //   let userMatchID = k + 1;
-                     userMatchID = k + 1;
+                     // userMatchID = k + 1;
                    }
                 }
                   // let spell1 = data.participants[userMatchID - 1].spell1Id;
@@ -159,13 +159,13 @@ var matchList = [];
               // // }
               // let tempCreepLabel = "innerTotalCSAndCSPMLabel" + i;
               // document.getElementById(tempCreepLabel).innerHTML = 
-            },
-                fail: function(error) {
+            // },
+                // fail: function(error) {
                     
                     // Non-200 return, do something with error
-                    console.log(error); 
-                }
-          });
+                    // console.log(error); 
+                // }
+          // });
           // document.getElementById(innerTempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Time/Length: " + data.matches[i].timestamp;
         }
 
