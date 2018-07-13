@@ -107,45 +107,48 @@ var matchList = [];
             dataType: "json",
 
             success: function(data) {
+              let userMatchID = 0;
             for (k = 0; k < data.participationIdentities.length; k++){
                 if(data.participationIdentities[k].player.summonerName == tempUsername) {
-                  let userMatchID = k + 1;
-                  
-                  let spell1 = data.participants[k].spell1Id;
-                  let spell2 = data.participants[k].spell2Id;
-                  let championLevel = data.participants[k].stats.champLevel;
-                  let totalCS = data.participants[k].stats.totalMinionsKilled;
+                //   let userMatchID = k + 1;
+                     userMatchID = k + 1;
+                   }
+                }
+                  let spell1 = data.participants[userMatchID - 1].spell1Id;
+                  let spell2 = data.participants[ userMatchID - 1].spell2Id;
+                  let championLevel = data.participants[userMatchID - 1].stats.champLevel;
+                  let totalCS = data.participants[userMatchID - 1].stats.totalMinionsKilled;
                   let winCondition = "";
-                  let kdaStat = (data.participants[k].stats.kills + data.participants[k].stats.assists) / data.participants[k].stats.deaths;
-                  let csPM = totalCS / (data.gameDuration / 60;);
-                  if (data.participants[k].stats.win == true) {
-                      winCondition.innerHTML = "Win";
-                  } else {
-                      winCondition.innerHTML = "Loss";
-                  }
-                  let tempTableName = "itemBuild" + (k + 1);
-                  var tempTable = document.getElementById(tempTableName);
-                  // var itemBuild = [];
-                  for(m = 0; m < 6; m++) {
-                    let tempName = "item" + m;
-                    let tempRow = tempTable.insertRow(m+1);
-                    let tempCell = tempRow.insertCell(0);
-                    tempCell.innerHTML = itemList.data[data.participants[k].stats.tempName].name
-                    // itemBuild.push(data.participants[k].stats.tempName);
-                  }
+                  let kdaStat = (data.participants[userMatchID - 1].stats.kills + data.participants[userMatchID - 1].stats.assists) / data.participants[userMatchID - 1].stats.deaths;
+                //   let csPM = totalCS / (data.gameDuration / 60;);
+                //   if (data.participants[k].stats.win == true) {
+                //       winCondition.innerHTML = "Win";
+                //   } else {
+                //       winCondition.innerHTML = "Loss";
+                //   }
+                //   let tempTableName = "itemBuild" + (k + 1);
+                //   var tempTable = document.getElementById(tempTableName);
+                //   // var itemBuild = [];
+                //   for(m = 0; m < 6; m++) {
+                //     let tempName = "item" + m;
+                //     let tempRow = tempTable.insertRow(m+1);
+                //     let tempCell = tempRow.insertCell(0);
+                //     tempCell.innerHTML = itemList.data[data.participants[k].stats.tempName].name
+                //     // itemBuild.push(data.participants[k].stats.tempName);
+                //   }
 
                   let gameDuration = data.gameDuration / 60;
                   document.getElementById(tempLabel).innerHTML = "Outcome: "+ winCondition + "Match Length: " +  gameDuration + " minutes" <br> "Champion Played: " + championList.data[matchList.matches[i].champion].name + " - Date: " + d;
-                  // for (i = 0; i < data.length; i++ ) {
-                    // championList
-                  // }
-                  let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
-                  document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
+                //   // for (i = 0; i < data.length; i++ ) {
+                //     // championList
+                //   // }
+                //   let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
+                //   document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
 
-                  // document.getElementById(innerTempLabel).innerHTML = championList.data[matchList.matches[i].champion].name + " - Level: " + champLevel;
+                //   // document.getElementById(innerTempLabel).innerHTML = championList.data[matchList.matches[i].champion].name + " - Level: " + champLevel;
 
-                }
-            }
+                // }
+            // }
 
 
               //  let gameDuration = data.gameDuration / 60;
