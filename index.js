@@ -68,9 +68,9 @@ app.get('/summoner/:name', function(req, res) {
     url: url,
     json: true
   }, function (err, response, body) {
-    if(!error && response.statusCode == 200) {
+    // if(!error && response.statusCode == 200) {
       res.status(200).send(body);
-    }
+    // }
     // else
     // {
       // res.status(200).send("booty");
