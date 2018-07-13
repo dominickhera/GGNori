@@ -69,7 +69,14 @@ app.get('/summoner/:name', function(req, res) {
     json: true
   }, function (err, response, body) {
     // if(!error && response.statusCode == 200) {
-      res.status(200).send(body);
+      console.log(body);
+      request({
+        url: "https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/" + body.accountId + "?endIndex=10&api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
+        json: true,
+      }, function(err, response, body) {
+        res.status(200).send(body);
+      })
+      // res.status(200).send(body);
     // }
     // else
     // {

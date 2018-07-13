@@ -36,7 +36,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
     success: function(data) {
       console.log(data);
       document.getElementById("demo2").innerHTML = data;
-  // //     // for (i=0; i < data.length; i++) {
+      // for (i=0; i < data.length; i++) {
   // //       // cryptoArray.push(data[i]);
   // //       // $("#cryptoDataList").append("<li>"+ cryptoArray[i].id + "</li>");
   // //     //  if(cryptoArray[i].percent_change_1h > 0)
