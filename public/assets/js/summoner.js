@@ -96,7 +96,7 @@ var matchList = [];
           d.setUTCSeconds(utcSeconds);
           matchList = data;
           // console.log(tempLabel);
-          // document.getElementById(tempLabel).innerHTML = "Match Length: " + <br> "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
+          document.getElementById(tempLabel).innerHTML = "Match Length: " + <br> "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
 
            // var championList = []
             $.ajax({
@@ -137,9 +137,9 @@ var matchList = [];
                   //   // itemBuild.push(data.participants[k].stats.tempName);
                   // }
 
-                  let gameDuration = data.gameDuration / 60;
-                  let tempLabel = "champAndLevelLabel" + (i + 1);
-                  document.getElementById(tempLabel).innerHTML = "Outcome: "+ winCondition + "Match Length: " +  gameDuration + " minutes" <br> "Champion Played: " + championList.data[matchList.matches[i].champion].name + " - Date: " + d;
+                  // let gameDuration = data.gameDuration / 60;
+                  // let tempLabel = "champAndLevelLabel" + (i + 1);
+                  // document.getElementById(tempLabel).innerHTML = "Outcome: "+ winCondition + "Match Length: " +  gameDuration + " minutes" <br> "Champion Played: " + championList.data[matchList.matches[i].champion].name + " - Date: " + d;
                 //   // for (i = 0; i < data.length; i++ ) {
                 //     // championList
                 //   // }
