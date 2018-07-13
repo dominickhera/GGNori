@@ -27,7 +27,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
   // console.log(urlParse);
   var searchUrl = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + tempUsername + "?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
   $.ajax({
-    url: "/summoner/herasy",
+    url: "/summoner?userName=" + tempUsername,
     type: 'get',
   //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
   // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
