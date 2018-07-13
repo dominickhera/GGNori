@@ -47,7 +47,8 @@ app.get('/summoner/', function(req, res) {
 
 
 app.get('/summoner?userName=:name', function(req, res) {
-  res.status(200).send(getSummonerByName(summonerName: req.params.name));
+  // res.status(200).send(getSummonerByName(summonerName: req.params.name));
+  res.status(200).sendFile(path.join(__dirname+'/public/test.html'));
 })
 // There will be a test page available on the /test path of your server url
 // Remove this before launching your app
