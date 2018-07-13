@@ -12,23 +12,6 @@ console.log(result.userName);
 var tempUsername = result.userName;
 document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
 
-
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight){
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  });
-}
-
-
 // window.onload = function() {
 // var query = location.search.substr(1);
 // var result = {};
@@ -43,7 +26,7 @@ for (i = 0; i < acc.length; i++) {
   // var summonerUserName = urlSearch.searchParams.get("userName");
   // console.log(urlParse);
   // var searchUrl = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + tempUsername + "?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
-    var championList = [];
+    var championList = []
     $.ajax({
     url: "/champions/",
     type: 'get',
@@ -66,30 +49,27 @@ for (i = 0; i < acc.length; i++) {
   });
 
 
-  //   var itemList = [];
-  //   $.ajax({
-  //   url: "/items/",
-  //   type: 'get',
-  // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
-  // // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
-  //   dataType: "json",
+    var itemList = []
+    $.ajax({
+    url: "/champions/",
+    type: 'get',
+  //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
+  // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
+    dataType: "json",
 
-  //   success: function(data) {
-  //     itemList = data;
-  //     // for (i = 0; i < data.length; i++ ) {
-  //       // championList
-  //     // }
+    success: function(data) {
+      itemList = data;
+      // for (i = 0; i < data.length; i++ ) {
+        // championList
+      // }
 
-  //   },
-  //       fail: function(error) {
+    },
+        fail: function(error) {
             
-  //           // Non-200 return, do something with error
-  //           console.log(error); 
-  //       }
-  // });
-
-
-var matchList = [];
+            // Non-200 return, do something with error
+            console.log(error); 
+        }
+  });
 
   $.ajax({
     url: "/summoner/" + tempUsername,
@@ -97,8 +77,6 @@ var matchList = [];
   //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
   // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
     dataType: "json",
-
-    
 
     success: function(data) {
       console.log(data);
@@ -111,88 +89,30 @@ var matchList = [];
           let utcSeconds = data.matches[i].timestamp;
           let d = new Date(0); 
           d.setUTCSeconds(utcSeconds);
-          matchList = data;
-          console.log(tempLabel);
-          document.getElementById(tempLabel).innerHTML = "Match Length: " + <br> "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
+          // console.log(tempLabel);
+          document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
 
            // var championList = []
-          //   $.ajax({
-          //   url: "/matchInfo/"+ data.matches[i].gameId,
-          //   type: 'get',
-          // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
-          // // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
-          //   dataType: "json",
+            $.ajax({
+            url: "/matchInfo/"+ data.matches[i].gameId,
+            type: 'get',
+          //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
+          // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
+            dataType: "json",
 
-          //   success: function(data) {
-          //     console.log(data);
-          //     let userMatchID = 0;
-          //   for (k = 0; k < data.participantIdentities.length; k++){
-          //       if(data.participantIdentities[k].player.summonerName == tempUsername) {
-          //         userMatchID = k + 1;
-          //         console.log("k shit is " + k);
-          //            // userMatchID = k + 1;
-          //          // }
-          //       // }
-          //         let spell1 = data.participants[k].spell1Id;
-          //         let spell2 = data.participants[k].spell2Id;
-          //         let championLevel = data.participants[k].stats.champLevel;
-          //         let totalCS = data.participants[k].stats.totalMinionsKilled;
-          //         let winCondition = "";
-          //         let kdaStat = (data.participants[k].stats.kills + data.participants[k].stats.assists) / data.participants[k].stats.deaths;
-          //         let csPM = totalCS / (data.gameDuration / 60;);
-          //         if (data.participants[k].stats.win == true) {
-          //             winCondition = "Win";
-          //         } else {
-          //             winCondition = "Loss";
-          //         }
+            success: function(data) {
+              championList = data;
+              // for (i = 0; i < data.length; i++ ) {
+                // championList
+              // }
 
-          //       //   let tempTableName = "itemBuild" + (k + 1);
-          //       //   var tempTable = document.getElementById(tempTableName);
-          //       // //   // var itemBuild = [];
-          //       //   for(m = 0; m < 6; m++) {
-          //       //     let tempName = "item" + m;
-          //       //     let tempRow = tempTable.insertRow(m+1);
-          //       //     let tempCell = tempRow.insertCell(0);
-          //       //     tempCell.innerHTML = tempName;
-          //       //     // itemList.data[data.participants[k].stats.tempName].name
-          //       // //     // itemBuild.push(data.participants[k].stats.tempName);
-          //       //   }
-
-          //       console.log(spell1);
-          //       console.log(spell2);
-          //       console.log(championLevel);
-          //       console.log(totalCS);
-          //       console.log(winCondition);
-          //       console.log(kdaStat);
-          //         let tempLabel = "champAndLevelLabel" + (i + 1);
-          //         let gameDuration = data.gameDuration / 60;
-          //         document.getElementById(tempLabel).innerHTML = "Outcome: "+ winCondition + "Match Length: " +  gameDuration + " minutes <br> Champion Played: " + championList.data[matchList.matches[i].champion].name + " - Date: " + d;
-          //       //   // for (i = 0; i < data.length; i++ ) {
-          //       //     // championList
-          //       //   // }
-          //         // let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
-          //         // document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
-
-          //         // document.getElementById(innerTempLabel).innerHTML = championList.data[matchList.matches[i].champion].name + " - Level: " + champLevel;
-
-          //       }
-          //   }
-
-
-              //  let gameDuration = data.gameDuration / 60;
-              //  document.getElementById(tempLabel).innerHTML = "Outcome: "+ winCondition + "Match Length: " +  gameDuration + " minutes" <br> "Champion Played: " + championList.data[matchList.matches[i].champion].name + " - Date: " + d;
-              // // for (i = 0; i < data.length; i++ ) {
-              //   // championList
-              // // }
-              // let tempCreepLabel = "innerTotalCSAndCSPMLabel" + i;
-              // document.getElementById(tempCreepLabel).innerHTML = 
-          //   },
-          //       fail: function(error) {
+            },
+                fail: function(error) {
                     
-          //           // Non-200 return, do something with error
-          //           console.log(error); 
-          //       }
-          // });
+                    // Non-200 return, do something with error
+                    console.log(error); 
+                }
+          });
           // document.getElementById(innerTempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Time/Length: " + data.matches[i].timestamp;
         }
 
@@ -223,20 +143,20 @@ console.log(window.location.href);
 
 // }
 
-// var acc = document.getElementsByClassName("accordion");
-// var i;
+var acc = document.getElementsByClassName("accordion");
+var i;
 
-// for (i = 0; i < acc.length; i++) {
-//   acc[i].addEventListener("click", function() {
-//     this.classList.toggle("active");
-//     var panel = this.nextElementSibling;
-//     if (panel.style.maxHeight){
-//       panel.style.maxHeight = null;
-//     } else {
-//       panel.style.maxHeight = panel.scrollHeight + "px";
-//     } 
-//   });
-// }
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
 
 function forceSetName() {
   var query = location.search.substr(1);
