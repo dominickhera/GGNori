@@ -27,26 +27,26 @@ window.onload = function() {
   // console.log(urlParse);
   // var searchUrl = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + tempUsername + "?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
     var championList = [];
-  //   $.ajax({
-  //   url: "/champions/",
-  //   type: 'get',
-  // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
-  // // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
-  //   dataType: "json",
+    $.ajax({
+    url: "/champions/",
+    type: 'get',
+  //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
+  // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
+    dataType: "json",
 
-  //   success: function(data) {
-  //     championList = data;
-  //     // for (i = 0; i < data.length; i++ ) {
-  //       // championList
-  //     // }
+    success: function(data) {
+      championList = data;
+      // for (i = 0; i < data.length; i++ ) {
+        // championList
+      // }
 
-  //   },
-  //       fail: function(error) {
+    },
+        fail: function(error) {
             
-  //           // Non-200 return, do something with error
-  //           console.log(error); 
-  //       }
-  // });
+            // Non-200 return, do something with error
+            console.log(error); 
+        }
+  });
 
 
   //   var itemList = []
@@ -90,31 +90,31 @@ window.onload = function() {
           let utcSeconds = data.matches[i].timestamp;
           let d = new Date(0); 
           d.setUTCSeconds(utcSeconds);
-          let champName = "";
-          $.ajax({
-            url: "/champions/" + data.matches[i].champion,
-            type: 'get',
+          // let champName = "";
+          // $.ajax({
+            // url: "/champions/" + data.matches[i].champion,
+            // type: 'get',
           //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
           // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
-            dataType: "json",
+            // dataType: "json",
 
-            success: function(championNameData) {
-              champName = championNameData;
-              console.log(champName);
-               document.getElementById(tempLabel).innerHTML = "Champion Played: " + champNameData.name + " - Date: " + d;
+            // success: function(championNameData) {
+              // champName = championNameData;
+              // console.log(champName);
+               // document.getElementById(tempLabel).innerHTML = "Champion Played: " + champNameData.name + " - Date: " + d;
               // for (i = 0; i < data.length; i++ ) {
                 // championList
               // }
 
-            },
-                fail: function(error) {
+            // },
+                // fail: function(error) {
                     
                     // Non-200 return, do something with error
-                    console.log(error); 
-                }
-          });
+                    // console.log(error); 
+                // }
+          // });
           // console.log(tempLabel);
-          // document.getElementById(tempLabel).innerHTML = "Champion Played: " + champName + " - Date: " + d;
+          document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
           matchList = data.matches;
            // var championList = []
            let gameDuration = 0;
