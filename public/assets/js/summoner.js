@@ -193,8 +193,8 @@ window.onload = function() {
                    let winCondition = "Loss";
                   }
 
-                  kdaStat = (gameKills + gameAssists) / gameDeaths;
-                  csPM = (totalCS/ gameDurationM\);
+                  // kdaStat = (gameKills + gameAssists) / gameDeaths;
+                  // csPM = (totalCS/ gameDurationM\);
                   // let tempHeaderLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
                   // document.getElementById(tempHeaderLabel).innerHTML = "Result: " + winCondition + " - Duration: " + gameDuration + " Minutes";
                   console.log("Result: " + winCondition + " - Duration: " + gameDurationMinutes + " Minutes");
