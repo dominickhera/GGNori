@@ -35,7 +35,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
     dataType: "json",
 
     success: function(data) {
-      championList = data.data;
+      championList = data;
       // for (i = 0; i < data.length; i++ ) {
         // championList
       // }

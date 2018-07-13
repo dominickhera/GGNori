@@ -58,7 +58,7 @@ app.get('/champions/', function(req, res) {
         url: "https://na1.api.riotgames.com/lol/static-data/v3/champions?locale=en_US&dataById=true&api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
         json: true,
       }, function(err, response, body) {
-        res.status(200).send(body);
+        res.status(200).send(body.data);
     });
 });
 
