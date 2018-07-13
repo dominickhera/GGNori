@@ -111,6 +111,7 @@ var matchList = [];
             for (k = 0; k < data.participantIdentities.length; k++){
                 if(data.participantIdentities[k].player.summonerName == tempUsername) {
                   let userMatchID = k + 1;
+                  console.log("k shit is " + k);
                      // userMatchID = k + 1;
                    }
                 }
