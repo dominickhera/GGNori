@@ -62,6 +62,15 @@ app.get('/champions/', function(req, res) {
     });
 });
 
+app.get('/matchInfo/:name', function(req, res) {
+  request({
+        url: "https://na1.api.riotgames.com/lol/match/v3/matches/" + req.params.name + "?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
+        json: true,
+      }, function(err, response, body) {
+        res.status(200).send(body);
+    });
+});
+
 app.get('/summoner/:name', function(req, res) {
   var url = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + req.params.name + "?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
   request({
