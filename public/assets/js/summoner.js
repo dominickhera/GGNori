@@ -156,13 +156,13 @@ window.onload = function() {
                   }
                   kdaStat = (gameKills + gameAssists) / gameDeaths;
                   csPM = (totalCS/ gameDuration);
-                  // let tempHeaderLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
-                  // document.getElementById(tempHeaderLabel).innerHTML = "Result: " + winCondition + " - Duration: " + gameDuration + " Minutes";
-                  // console.log("Result: " + winCondition + " - Duration: " + gameDuration + " Minutes");
-                  // let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
-                  // document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
-                  // console.log("Total CS: " + totalCS + " - CS/Minute: " + csPM);
-                  // console.log(matchData.participants[k]);
+                  let tempHeaderLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
+                  document.getElementById(tempHeaderLabel).innerHTML = "Result: " + winCondition + " - Duration: " + gameDuration + " Minutes";
+                  console.log("Result: " + winCondition + " - Duration: " + gameDuration + " Minutes");
+                  let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
+                  document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
+                  console.log("Total CS: " + totalCS + " - CS/Minute: " + csPM);
+                  console.log(matchData.participants[k]);
                 }
               }
               // championList = data;
@@ -180,12 +180,12 @@ window.onload = function() {
                 }
           });
 
-            let tempHeaderLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
-            document.getElementById(tempHeaderLabel).innerHTML = "Result: " + winCondition + " - Duration: " + gameDuration + " Minutes";
-            console.log("Result: " + winCondition + " - Duration: " + gameDuration + " Minutes");
-            let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
-            document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
-            console.log("Total CS: " + totalCS + " - CS/Minute: " + csPM);
+            // let tempHeaderLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
+            // document.getElementById(tempHeaderLabel).innerHTML = "Result: " + winCondition + " - Duration: " + gameDuration + " Minutes";
+            // console.log("Result: " + winCondition + " - Duration: " + gameDuration + " Minutes");
+            // let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
+            // document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
+            // console.log("Total CS: " + totalCS + " - CS/Minute: " + csPM);
           // document.getElementById(innerTempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Time/Length: " + data.matches[i].timestamp;
         }
 
