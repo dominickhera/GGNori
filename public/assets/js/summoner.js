@@ -26,7 +26,7 @@ document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
   // var summonerUserName = urlSearch.searchParams.get("userName");
   // console.log(urlParse);
   // var searchUrl = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + tempUsername + "?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
-    var championList = []
+    var championList = [];
     $.ajax({
     url: "/champions/",
     type: 'get',
@@ -89,15 +89,15 @@ var matchList = [];
       for (i=0; i < data.matches.length; i++) {
         // for(let match of data) {
           console.log(data.matches[i].champion);
-          // let tempLabel = "champAndLevelLabel" + (i + 1);
+          let tempLabel = "champAndLevelLabel" + (i + 1);
           let innerTempLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
           let utcSeconds = data.matches[i].timestamp;
           let d = new Date(0); 
           d.setUTCSeconds(utcSeconds);
           matchList = data;
           // console.log(tempLabel);
-          let userChampionName = championList.data[data.matches[i].champion].name 
-          // document.getElementById(tempLabel).innerHTML = "Match Length: " + <br> "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
+          // let userChampionName = championList.data[data.matches[i].champion].name 
+          document.getElementById(tempLabel).innerHTML = "Match Length: " + <br> "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
 
            // var championList = []
             $.ajax({
@@ -139,8 +139,8 @@ var matchList = [];
                   // }
 
                   // let gameDuration = data.gameDuration / 60;
-                  let tempLabel = "champAndLevelLabel" + (i + 1);
-                  document.getElementById(tempLabel).innerHTML = "Outcome: Match Length: minutes" <br> "Champion Played: " + userChampionName + " - Date: " + d;
+                  // let tempLabel = "champAndLevelLabel" + (i + 1);
+                  // document.getElementById(tempLabel).innerHTML = "Outcome: Match Length: minutes" <br> "Champion Played: " + userChampionName + " - Date: " + d;
                 //   // for (i = 0; i < data.length; i++ ) {
                 //     // championList
                 //   // }
