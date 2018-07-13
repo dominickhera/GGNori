@@ -90,13 +90,13 @@ var matchList = [];
         // for(let match of data) {
           console.log(data.matches[i].champion);
           let tempLabel = "champAndLevelLabel" + (i + 1);
-          // let innerTempLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
+          let innerTempLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
           let utcSeconds = data.matches[i].timestamp;
           let d = new Date(0); 
           d.setUTCSeconds(utcSeconds);
           matchList = data;
-          console.log(tempLabel);
-          document.getElementById(tempLabel).innerHTML = "Match Length: " + <br> "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
+          // console.log(tempLabel);
+          // document.getElementById(tempLabel).innerHTML = "Match Length: " + <br> "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
 
            // var championList = []
             $.ajax({
@@ -110,7 +110,7 @@ var matchList = [];
               let userMatchID = 0;
             for (k = 0; k < data.participantIdentities.length; k++){
                 if(data.participantIdentities[k].player.summonerName == tempUsername) {
-                  let userMatchID = k + 1;
+                  userMatchID = k + 1;
                   console.log("k shit is " + k);
                      // userMatchID = k + 1;
                    }
@@ -122,11 +122,11 @@ var matchList = [];
                   let winCondition = "";
                   let kdaStat = (data.participants[userMatchID - 1].stats.kills + data.participants[userMatchID - 1].stats.assists) / data.participants[userMatchID - 1].stats.deaths;
                 //   let csPM = totalCS / (data.gameDuration / 60;);
-                //   if (data.participants[k].stats.win == true) {
-                //       winCondition.innerHTML = "Win";
-                //   } else {
-                //       winCondition.innerHTML = "Loss";
-                //   }
+                  if (data.participants[k].stats.win == true) {
+                      winCondition.innerHTML = "Win";
+                  } else {
+                      winCondition.innerHTML = "Loss";
+                  }
                 //   let tempTableName = "itemBuild" + (k + 1);
                 //   var tempTable = document.getElementById(tempTableName);
                 //   // var itemBuild = [];
@@ -138,8 +138,8 @@ var matchList = [];
                 //     // itemBuild.push(data.participants[k].stats.tempName);
                 //   }
 
-                  // let gameDuration = data.gameDuration / 60;
-                  // document.getElementById(tempLabel).innerHTML = "Outcome: "+ winCondition + "Match Length: " +  gameDuration + " minutes" <br> "Champion Played: " + championList.data[matchList.matches[i].champion].name + " - Date: " + d;
+                  let gameDuration = data.gameDuration / 60;
+                  document.getElementById(tempLabel).innerHTML = "Outcome: "+ winCondition + "Match Length: " +  gameDuration + " minutes" <br> "Champion Played: " + championList.data[matchList.matches[i].champion].name + " - Date: " + d;
                 //   // for (i = 0; i < data.length; i++ ) {
                 //     // championList
                 //   // }
