@@ -89,7 +89,7 @@ var matchList = [];
       for (i=0; i < data.matches.length; i++) {
         // for(let match of data) {
           console.log(data.matches[i].champion);
-          let tempLabel = "champAndLevelLabel" + (i + 1);
+          // let tempLabel = "champAndLevelLabel" + (i + 1);
           let innerTempLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
           let utcSeconds = data.matches[i].timestamp;
           let d = new Date(0); 
@@ -128,7 +128,7 @@ var matchList = [];
                   } else {
                       winCondition = "Loss";
                   }
-                  
+
                   let tempTableName = "itemBuild" + (k + 1);
                   var tempTable = document.getElementById(tempTableName);
                 //   // var itemBuild = [];
@@ -147,16 +147,16 @@ var matchList = [];
                 console.log(totalCS);
                 console.log(winCondition);
                 console.log(kdaStat);
-
+                  let tempLabel = "champAndLevelLabel" + (i + 1);
                   let gameDuration = data.gameDuration / 60;
-                  document.getElementById(tempLabel).innerHTML = "Outcome: "+ winCondition + "Match Length: " +  gameDuration + " minutes" <br> "Champion Played: " + championList.data[matchList.matches[i].champion].name + " - Date: " + d;
+                  document.getElementById(tempLabel).innerHTML = "Outcome: "+ winCondition + "Match Length: " +  gameDuration + " minutes <br> Champion Played: " + championList.data[matchList.matches[i].champion].name + " - Date: " + d;
                 //   // for (i = 0; i < data.length; i++ ) {
                 //     // championList
                 //   // }
                   let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
                   document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
 
-                  document.getElementById(innerTempLabel).innerHTML = championList.data[matchList.matches[i].champion].name + " - Level: " + champLevel;
+                  // document.getElementById(innerTempLabel).innerHTML = championList.data[matchList.matches[i].champion].name + " - Level: " + champLevel;
 
                 }
             }
