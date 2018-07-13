@@ -47,17 +47,18 @@ app.get('/summoner/', function(req, res) {
 
 
 app.get('/summoner/:name', function(req, res) {
-  riot.summoner.byName(
-    req.params.name, //or 'Dyrus,I DIED TO WOLVES,InsertSmurfHere'
-    {},
-    console.log
-);
+  // riot.summoner.byName(
+    // req.params.name, //or 'Dyrus,I DIED TO WOLVES,InsertSmurfHere'
+    // {},
+    // console.log
+// );
   // res.status(200).send(riot.summoner.byName(
     // req.params.name, //or 'Dyrus,I DIED TO WOLVES,InsertSmurfHere'
     // {},
     // console.log
 // ));
-  res.status(200).sendFile(path.join(__dirname+'/public/test.html'));
+  res.status(200).send(req.params.name);
+  // res.status(200).sendFile(path.join(__dirname+'/public/test.html'));
 });
 // There will be a test page available on the /test path of your server url
 // Remove this before launching your app
