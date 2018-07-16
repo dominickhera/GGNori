@@ -88,9 +88,9 @@ app.get('/matchInfo/:name', function(req, res) {
 });
 
 app.get('/summoner/:name', function(req, res) {
-  LolApi.Summoner.getByName(req.params.name)
+  leagueAPI.Summoner.getByName(req.params.name)
 .then(function (summoner) {
-    console.log(summoner);
+    // console.log(summoner);
     res.status(200).send(summoner);
 });
   // var url = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + req.params.name + "?api_key=" + riotDevKey;
