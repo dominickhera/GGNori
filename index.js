@@ -8,7 +8,8 @@ var path = require('path');
 var leagueAPI = require('leagueapi');
 // riot.developerKey = "RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
 var riotDevKey = "RGAPI-1b2d207f-0e76-451c-a0c5-599e79a3956e";
-
+leagueAPI.Init(riotDevKey);
+leagueAPI.setRateLimit(200, 500);
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
 if (!databaseUri) {
@@ -87,26 +88,31 @@ app.get('/matchInfo/:name', function(req, res) {
 });
 
 app.get('/summoner/:name', function(req, res) {
-  var url = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + req.params.name + "?api_key=" + riotDevKey;
-  request({
-    url: url,
-    json: true
-  }, function (err, response, body) {
-    // if(!error && response.statusCode == 200) {
-      console.log(body);
-      request({
-        url: "https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/" + body.accountId + "?endIndex=10&api_key=" + riotDevKey,
-        json: true,
-      }, function(err, response, body) {
-        res.status(200).send(body);
-      });
-      // res.status(200).send(body);
-    // }
-    // else
-    // {
-      // res.status(200).send("booty");
-    // }
-  });
+  LolApi.Summoner.getByName(req.params.name)
+.then(function (summoner) {
+    // console.log(summoner);
+    res.status(200).send(summoner);
+});
+  // var url = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + req.params.name + "?api_key=" + riotDevKey;
+  // request({
+  //   url: url,
+  //   json: true
+  // }, function (err, response, body) {
+  //   // if(!error && response.statusCode == 200) {
+  //     console.log(body);
+  //     request({
+  //       url: "https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/" + body.accountId + "?endIndex=10&api_key=" + riotDevKey,
+  //       json: true,
+  //     }, function(err, response, body) {
+  //       res.status(200).send(body);
+  //     });
+  //     // res.status(200).send(body);
+  //   // }
+  //   // else
+  //   // {
+  //     // res.status(200).send("booty");
+  //   // }
+  // });
   // res.status(200).send(req.params.name);
   // res.status(200).sendFile(path.join(__dirname+'/public/test.html'));
 });
