@@ -9,7 +9,7 @@ var leagueAPI = require('leagueapi');
 // riot.developerKey = "RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
 var riotDevKey = "RGAPI-1b2d207f-0e76-451c-a0c5-599e79a3956e";
 leagueAPI.Init(riotDevKey);
-leagueAPI.setRateLimit(200, 500);
+// leagueAPI.setRateLimit(200, 500);
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
 if (!databaseUri) {
@@ -90,7 +90,7 @@ app.get('/matchInfo/:name', function(req, res) {
 app.get('/summoner/:name', function(req, res) {
   LolApi.Summoner.getByName(req.params.name)
 .then(function (summoner) {
-    // console.log(summoner);
+    console.log(summoner);
     res.status(200).send(summoner);
 });
   // var url = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + req.params.name + "?api_key=" + riotDevKey;
