@@ -1,52 +1,30 @@
-// var test = require('url');
-// $.ready(function() {
-// window.onload = function() {
- // var urlParse = window.location.href;
 var query = location.search.substr(1);
 var result = {};
 query.split("&").forEach(function(part) {
     var item = part.split("=");
     result[item[0]] = decodeURIComponent(item[1]);
 });
-// console.log(result.userName);
+console.log(result.userName);
 var tempUsername = result.userName;
 document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
 
 window.onload = function() {
-// var query = location.search.substr(1);
-// var result = {};
-// query.split("&").forEach(function(part) {
-//     var item = part.split("=");
-//     result[item[0]] = decodeURIComponent(item[1]);
-// });
-// console.log(result);
-// var tempUsername = result.userName;
-// document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
-  // var urlSearch = newURL(urlParse);
-  // var summonerUserName = urlSearch.searchParams.get("userName");
-  // console.log(urlParse);
-  // var searchUrl = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + tempUsername + "?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
-  //   var championList = [];
-  //   $.ajax({
-  //   url: "/champions/",
-  //   type: 'get',
-  // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
-  // // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
-  //   dataType: "json",
 
-  //   success: function(data) {
-  //     championList = data;
-  //     // for (i = 0; i < data.length; i++ ) {
-  //       // championList
-  //     // }
+    var championList = [];
+    $.ajax({
+    url: "/champions/",
+    type: 'get',
+    dataType: "json",
 
-  //   },
-  //       fail: function(error) {
+    success: function(data) {
+      championList = data;
+    },
+    fail: function(error) {
             
-  //           // Non-200 return, do something with error
-  //           console.log(error); 
-  //       }
-  // });
+            // Non-200 return, do something with error
+        console.log(error); 
+    }
+  });
 
 
   //   var itemList = []
@@ -71,170 +49,71 @@ window.onload = function() {
   //       }
   // });
 
-  // var matchList = [];
+  var matchList = [];
   $.ajax({
     url: "/summoner/" + tempUsername,
     type: 'get',
-  //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
-  // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
     dataType: "json",
 
     success: function(data) {
       console.log(data);
       document.getElementById("demo2").innerHTML = data;
-      // for (i=0; i < data.matches.length; i++) {
-      //   // for(let match of data) {
-      //     console.log(data.matches[i].champion);
-      //     let tempLabel = "champAndLevelLabel" + (i + 1);
-      //     let innerTempLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
-      //     let utcSeconds = data.matches[i].timestamp;
-      //     let d = new Date(0); 
-      //     d.setUTCSeconds(utcSeconds);
-          // let champName = "";
-          // $.ajax({
-            // url: "/champions/" + data.matches[i].champion,
-            // type: 'get',
-          //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
-          // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
-            // dataType: "json",
+      for (i=0; i < data.matches.length; i++) {
+          console.log(data.matches[i].champion);
+          let tempLabel = "champAndLevelLabel" + (i + 1);
+          let innerTempLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
+          let utcSeconds = data.matches[i].timestamp;
+          let d = new Date(0); 
+          d.setUTCSeconds(utcSeconds);
+          document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
+          matchList = data.matches;
+            $.ajax({
+            url: "/matchInfo/"+ data.matches[i].gameId,
+            type: 'get',
+            dataType: "json",
 
-            // success: function(championNameData) {
-              // champName = championNameData;
-              // console.log(champName);
-               // document.getElementById(tempLabel).innerHTML = "Champion Played: " + champNameData.name + " - Date: " + d;
-              // for (i = 0; i < data.length; i++ ) {
-                // championList
-              // }
+            success: function(matchData) {
+              console.log(matchData);
+              console.log(matchData.gameDuration);
+              let tempUsernameID = 0;
+              for (k=0; k < matchData.participantIdentities.length; k++){ 
+                if (matchData.participantIdentities[k].player.summonerName == tempUsername) {
+                  tempUsernameID = k;
+                }
+              }
+           let gameDurationMinutes = matchData.gameDuration / 60;
+           let summonerSpell1 = matchData.participants[tempUsernameID].spell1Id;;
+           let summonerSpell2 = matchData.participants[tempUsernameID].spell2Id;;
+           let championLevel = matchData.participants[tempUsernameID].stats.champLevel;
+           let totalCS = matchData.participants[tempUsernameIDp].stats.totalMinionsKilled;
+           let csPM = (totalCS / gameDurationMinutes);
+           // let winCondition = "";
+           let gameKills = matchData.participants[tempUsernameID].stats.kills;
+           let gameAssists = matchData.participants[tempUsernameID].stats.assists;
+           let gameDeaths = matchData.participants[tempUsernameID].stats.deaths;
+           let kdaStat = (gameKills + gameAssists) / gameDeaths;
 
-            // },
-                // fail: function(error) {
+                  if(matchData.participants[tempUsernameID].stats.win == true) {
+                    let winCondition = "Win";
+                  } else {
+                    let winCondition = "Loss";
+                  }
+
+                  let tempHeaderLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
+                  document.getElementById(tempHeaderLabel).innerHTML = "Result: " + winCondition + " - Duration: " + gameDuration + " Minutes";
+                  console.log("Result: " + winCondition + " - Duration: " + gameDurationMinutes + " Minutes");
+                  let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
+                  document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
+                  console.log("Total CS: " + totalCS + " - CS/Minute: " + csPM);
+                  console.log(matchData.participants[k]);
+            },
+                fail: function(error) {
                     
                     // Non-200 return, do something with error
-                    // console.log(error); 
-                // }
-          // });
-          // console.log(tempLabel);
-          // document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
-          // matchList = data.matches;
-           // var championList = []
-           // let gameDuration = 0;
-           // let summonerSpell1 = "";
-           // let summonerSpell2 = "";
-           // let championLevel = 0;
-           // let totalCS = 0;
-           // let csPM = 0;
-           // let winCondition = "";
-           // let gameKills = 0;
-           // let gameAssists = 0;
-           // let gameDeaths = 0;
-           // let kdaStat = 0;
-            // $.ajax({
-            // url: "/matchInfo/"+ data.matches[i].gameId,
-            // type: 'get',
-          //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
-          // //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
-            // dataType: "json",
-
-            // success: function(matchData) {
-              // console.log(matchData);
-              // console.log(matchData.gameDuration);
-              // let tempUsernameID = 0;
-              // for (k=0; k < matchData.participantIdentities.length; k++){ 
-                // if (matchData.participantIdentities[k].player.summonerName == tempUsername) {
-                  // tempUsernameID = k;
-                  // summonerSpell1 = matchData.participants[k].spell1Id;
-                  // summonerSpell2 = matchData.participants[k].spell12d;
-                  // gameDuration = matchData.gameDuration / 60;
-                  // championLevel = matchData.participants[k].stats.champLevel;
-                  // totalCS = matchData.participants[k].stats.totalMinionsKilled;
-                  // gameKills = matchData.participants[k].stats.kills;
-                  // gameDeaths = matchData.participants[k].stats.deaths;
-                  // gameAssists = matchData.participants[k].stats.assists;
-
-                  // if(matchData.participants[k].stats.win == true) {
-                  //   winCondition = "Win";
-                  // } else {
-                  //   winCondition = "Loss";
-                  // }
-                  // kdaStat = (gameKills + gameAssists) / gameDeaths;
-                  // csPM = (totalCS/ gameDuration);
-                  // let tempHeaderLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
-                  // document.getElementById(tempHeaderLabel).innerHTML = "Result: " + winCondition + " - Duration: " + gameDuration + " Minutes";
-                  // console.log("Result: " + winCondition + " - Duration: " + gameDuration + " Minutes");
-                  // let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
-                  // document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
-                  // console.log("Total CS: " + totalCS + " - CS/Minute: " + csPM);
-                  // console.log(matchData.participants[k]);
-                // }
-              // }
-          //  let gameDurationMinutes = matchData.gameDuration / 60;
-          //  let summonerSpell1 = matchData.participants[tempUsernameID].spell1Id;;
-          //  let summonerSpell2 = matchData.participants[tempUsernameID].spell2Id;;
-          //  let championLevel = matchData.participants[tempUsernameID].stats.champLevel;
-          //  let totalCS = matchData.participants[tempUsernameIDp].stats.totalMinionsKilled;
-          //  let csPM = (totalCS / gameDurationMinutes);
-           // let winCondition = "";
-          //  let gameKills = matchData.participants[tempUsernameID].stats.kills;
-          //  let gameAssists = matchData.participants[tempUsernameID].stats.assists;
-          //  let gameDeaths = matchData.participants[tempUsernameID].stats.deaths;
-          //  let kdaStat = (gameKills + gameAssists) / gameDeaths;
-                  // summonerSpell1 = matchData.participants[tempUsernameID].spell1Id;
-                  // summonerSpell2 = matchData.participants[tempUsernameID].spell12d;
-                  // gameDurationMinutes = matchData.gameDuration / 60;
-                  // championLevel = matchData.participants[tempUsernameID].stats.champLevel;
-                  // totalCS = matchData.participants[tempUsernameIDp].stats.totalMinionsKilled;
-                  // gameKills = matchData.participants[tempUsernameID].stats.kills;
-                  // gameDeaths = matchData.participants[tempUsernameID].stats.deaths;
-                  // gameAssists = matchData.participants[tempUsernameID].stats.assists;
-
-                  // if(matchData.participants[tempUsernameID].stats.win == true) {
-                  //   let winCondition = "Win";
-                  // } else {
-                  //  let winCondition = "Loss";
-                  // }
-
-                  // kdaStat = (gameKills + gameAssists) / gameDeaths;
-                  // csPM = (totalCS/ gameDurationM\);
-                  // let tempHeaderLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
-                  // document.getElementById(tempHeaderLabel).innerHTML = "Result: " + winCondition + " - Duration: " + gameDuration + " Minutes";
-                  // console.log("Result: " + winCondition + " - Duration: " + gameDurationMinutes + " Minutes");
-                  // // let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
-                  // // document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
-                  // console.log("Total CS: " + totalCS + " - CS/Minute: " + csPM);
-                  // console.log(matchData.participants[k]);
-                  // console.log("monkey brains");
-              // championList = data;
-              // for (i = 0; i < data.length; i++ ) {
-                // championList
-              // }
-              // let tempLabel = "innerChampionPlayedAndLevelLabel1" + (i + 1);
-               // document.getElementById(tempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Date: " + d;
-
-            // },
-                // fail: function(error) {
-                    
-                    // Non-200 return, do something with error
-                    // console.log(error); 
-                // }
-          // });
-
-            // let tempHeaderLabel = "innerChampionPlayedAndLevelLabel" + (i + 1);
-            // document.getElementById(tempHeaderLabel).innerHTML = "Result: " + winCondition + " - Duration: " + gameDuration + " Minutes";
-            // console.log("Result: " + winCondition + " - Duration: " + gameDuration + " Minutes");
-            // let tempCreepLabel = "innerTotalCSAndCSPMLabel" + (i + 1);
-            // document.getElementById(tempCreepLabel).innerHTML = "Total CS: " + totalCS + " - CS/Minute: " + csPM;
-            // console.log("Total CS: " + totalCS + " - CS/Minute: " + csPM);
-          // document.getElementById(innerTempLabel).innerHTML = "Champion Played: " + championList.data[data.matches[i].champion].name + " - Time/Length: " + data.matches[i].timestamp;
-        // }
-
-  //       // cryptoArray.push(data[i]);
-  // //       // $("#cryptoDataList").append("<li>"+ cryptoArray[i].id + "</li>");
-  // //     //  if(cryptoArray[i].percent_change_1h > 0)
-  // //     //  {
-  // //         // $("#cryptoList").append("<option value=\"" + cryptoArray[i].id + "\">" + cryptoArray[i].id + "</option>");
-  // //     //  }
-      // }
-  // //     // selectionSort(cryptoArray);
+                    console.log(error); 
+                }
+          });
+        }
     },
         fail: function(error) {
             
@@ -242,15 +121,9 @@ window.onload = function() {
             console.log(error); 
         }
   });
-console.log("hella");
-// document.getElementById("demo2").innerHTML = searchUrl
+
 console.log(window.location.href);
-// document.getElementById("summonerUserName").innerHTML = result;
-// }
-// $('form').submit(function(e){
-//   e.preventDefault();
-// console.log("lolbfadsljfakldsfj")
-// document.getElementById("demo").innerHTML = "The full URL of this page is:<br>" + window.location.href;
+
 
 }
 
@@ -280,22 +153,3 @@ function forceSetName() {
   var tempUsername = result.userName;
   document.getElementById("summonerUserNameLabel").innerHTML = tempUsername
 }
-  // $.ajax({
-  //   // url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy?api_key=RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1",
-  //   url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Herasy",
-  //   dataType: "json",
-
-  //   success: function(data) {
-  //     console.log(data);
-  //     // for (i=0; i < data.length; i++) {
-  //       // cryptoArray.push(data[i]);
-  //       // $("#cryptoDataList").append("<li>"+ cryptoArray[i].id + "</li>");
-  //     //  if(cryptoArray[i].percent_change_1h > 0)
-  //     //  {
-  //         // $("#cryptoList").append("<option value=\"" + cryptoArray[i].id + "\">" + cryptoArray[i].id + "</option>");
-  //     //  }
-  //     // }
-  //     // selectionSort(cryptoArray);
-  //   }
-  // });
-// }

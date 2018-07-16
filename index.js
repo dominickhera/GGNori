@@ -51,7 +51,6 @@ app.get('/summoner/', function(req, res) {
   // res.status(200).send('I dream of being a website.  Please star the parse-server repo on GitHub!');
 });
 
-var championList = []
 app.get('/champions/', function(req, res) {
   request({
         url: "https://na1.api.riotgames.com/lol/static-data/v3/champions?locale=en_US&dataById=true&api_key=" + riotDevKey,
@@ -89,33 +88,20 @@ app.get('/matchInfo/:name', function(req, res) {
 });
 
 app.get('/summoner/:name', function(req, res) {
-  leagueAPI.Summoner.getByName(req.params.name)
-.then(function (summoner) {
-    console.log(summoner);
-    res.status(200).send(summoner);
-});
-  // var url = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + req.params.name + "?api_key=" + riotDevKey;
-  // request({
-  //   url: url,
-  //   json: true
-  // }, function (err, response, body) {
-  //   // if(!error && response.statusCode == 200) {
-  //     console.log(body);
-  //     request({
-  //       url: "https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/" + body.accountId + "?endIndex=10&api_key=" + riotDevKey,
-  //       json: true,
-  //     }, function(err, response, body) {
-  //       res.status(200).send(body);
-  //     });
-  //     // res.status(200).send(body);
-  //   // }
-  //   // else
-  //   // {
-  //     // res.status(200).send("booty");
-  //   // }
-  // });
-  // res.status(200).send(req.params.name);
-  // res.status(200).sendFile(path.join(__dirname+'/public/test.html'));
+
+  var url = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + req.params.name + "?api_key=" + riotDevKey;
+  request({
+    url: url,
+    json: true
+  }, function (err, response, body) {
+      console.log(body);
+      request({
+        url: "https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/" + body.accountId + "?endIndex=10&api_key=" + riotDevKey,
+        json: true,
+      }, function(err, response, body) {
+        res.status(200).send(body);
+      });
+  });
 });
 // There will be a test page available on the /test path of your server url
 // Remove this before launching your app
