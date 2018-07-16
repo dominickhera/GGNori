@@ -12,6 +12,8 @@ var irelia = new Irelia({
   debug: true
 });
 riot.developerKey = "RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
+var riotDevKey = "RGAPI-1b2d207f-0e76-451c-a0c5-599e79a3956e";
+
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
 if (!databaseUri) {
@@ -55,7 +57,7 @@ app.get('/summoner/', function(req, res) {
 var championList = []
 app.get('/champions/', function(req, res) {
   request({
-        url: "https://na1.api.riotgames.com/lol/static-data/v3/champions?locale=en_US&dataById=true&api_key=RGAPI-b47ca886-a33c-4e00-a157-eda4664f01d5",
+        url: "https://na1.api.riotgames.com/lol/static-data/v3/champions?locale=en_US&dataById=true&api_key=" + riotDevKey,
         json: true,
       }, function(err, response, body) {
         res.status(200).send(body);
@@ -64,7 +66,7 @@ app.get('/champions/', function(req, res) {
 
 app.get('/champions/:name', function(req, res) {
   request({
-        url: "https://na1.api.riotgames.com/lol/static-data/v3/champions/"+ req.params.name +"?locale=en_US&dataById=true&api_key=RGAPI-b47ca886-a33c-4e00-a157-eda4664f01d5",
+        url: "https://na1.api.riotgames.com/lol/static-data/v3/champions/"+ req.params.name +"?locale=en_US&dataById=true&api_key=" + riotDevKey,
         json: true,
       }, function(err, response, body) {
         res.status(200).send(body);
@@ -73,7 +75,7 @@ app.get('/champions/:name', function(req, res) {
 
 app.get('/items/', function(req, res) {
   request({
-        url: "https://na1.api.riotgames.com/lol/static-data/v3/items?locale=en_US&dataById=true&api_key=RGAPI-b47ca886-a33c-4e00-a157-eda4664f01d5",
+        url: "https://na1.api.riotgames.com/lol/static-data/v3/items?locale=en_US&dataById=true&api_key=" + riotDevKey,
         json: true,
       }, function(err, response, body) {
         res.status(200).send(body);
@@ -82,7 +84,7 @@ app.get('/items/', function(req, res) {
 
 app.get('/matchInfo/:name', function(req, res) {
   request({
-        url: "https://na1.api.riotgames.com/lol/match/v3/matches/" + req.params.name + "?api_key=RGAPI-b47ca886-a33c-4e00-a157-eda4664f01d5",
+        url: "https://na1.api.riotgames.com/lol/match/v3/matches/" + req.params.name + "?api_key=" + riotDevKey,
         json: true,
       }, function(err, response, body) {
         res.status(200).send(body);
@@ -90,7 +92,7 @@ app.get('/matchInfo/:name', function(req, res) {
 });
 
 app.get('/summoner/:name', function(req, res) {
-  var url = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + req.params.name + "?api_key=RGAPI-b47ca886-a33c-4e00-a157-eda4664f01d5";
+  var url = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + req.params.name + "?api_key=" + riotDevKey;
   request({
     url: url,
     json: true
@@ -98,7 +100,7 @@ app.get('/summoner/:name', function(req, res) {
     // if(!error && response.statusCode == 200) {
       console.log(body);
       request({
-        url: "https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/" + body.accountId + "?endIndex=10&api_key=RGAPI-b47ca886-a33c-4e00-a157-eda4664f01d5",
+        url: "https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/" + body.accountId + "?endIndex=10&api_key=" + riotDevKey,
         json: true,
       }, function(err, response, body) {
         res.status(200).send(body);
