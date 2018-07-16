@@ -30,6 +30,8 @@ var api = new ParseServer({
 // javascriptKey, restAPIKey, dotNetKey, clientKey
 
 var app = express();
+leagueAPI.init(riotDevKey);
+leagueAPI.setRateLimit(200, 500);
 
 // Serve static assets from the /public folder
 app.use('/public', express.static(path.join(__dirname, '/public')));
@@ -126,9 +128,6 @@ var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
     console.log('parse-server-example running on port ' + port + '.');
 });
-
-leagueAPI.init(riotDevKey);
-leagueAPI.setRateLimit(200, 500);
 
 // This will enable the Live Query real-time server
 ParseServer.createLiveQueryServer(httpServer);
