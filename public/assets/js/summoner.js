@@ -8,7 +8,7 @@ query.split("&").forEach(function(part) {
     var item = part.split("=");
     result[item[0]] = decodeURIComponent(item[1]);
 });
-console.log(result.userName);
+// console.log(result.userName);
 var tempUsername = result.userName;
 document.getElementById("summonerUserNameLabel").innerHTML = tempUsername;
 
