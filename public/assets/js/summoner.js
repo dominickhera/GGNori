@@ -81,7 +81,7 @@ window.onload = function() {
 
     success: function(data) {
       console.log(data);
-      // document.getElementById("demo2").innerHTML = data;
+      document.getElementById("demo2").innerHTML = data;
       // for (i=0; i < data.matches.length; i++) {
       //   // for(let match of data) {
       //     console.log(data.matches[i].champion);
