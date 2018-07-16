@@ -1,17 +1,12 @@
 // Example express application adding the parse-server module to expose Parse
 // compatible API routes.
-var riot = require("riot-api-nodejs");
-var Irelia = require('irelia');
+
 var request = require('request');
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
-var irelia = new Irelia({
-  secure: true,
-  key: 'RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1',
-  debug: true
-});
-riot.developerKey = "RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
+var leagueAPI = require('leagueapi');
+// riot.developerKey = "RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
 var riotDevKey = "RGAPI-1b2d207f-0e76-451c-a0c5-599e79a3956e";
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
