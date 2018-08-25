@@ -76,6 +76,15 @@ app.get('/champions/', function(req, res) {
   });
 });
 
+app.get('/championData/', function(req, res) {
+  con.connect(function(err) {
+    con.query("SELECT * FROM champions", function(err, result, fields) {
+      if(err) throw err;
+      console.log(result);
+    });
+  });
+});
+
 app.get('/champions/:name', function(req, res) {
   request({
         url: "https://na1.api.riotgames.com/lol/static-data/v3/champions/"+ req.params.name +"?locale=en_US&dataById=true&api_key=" + riotDevKey,

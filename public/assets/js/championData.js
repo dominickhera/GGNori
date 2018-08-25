@@ -2,13 +2,13 @@
 window.onload = function() {
     var championList = [];
     $.ajax({
-    url: "/champions/",
+    url: "/championData/",
     type: 'get',
     dataType: "json",
 
     success: function(data) {
-      championList = data;
-      console.log(championList);
+      // championList = data;
+      console.log(data);
     },
     fail: function(error) {
             
@@ -17,5 +17,5 @@ window.onload = function() {
     }
   });
 
-console.log("why");
+console.log("champ list bb");
 }
