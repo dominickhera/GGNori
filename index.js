@@ -88,11 +88,11 @@ app.get('/championData/', function(req, res) {
 // console.log("query does something like this" + query);
 // function(err, response, body) {
   
-  let query = new Parse.Query('champions');
-  query.equalTo('name', 'Yasuo');
-  let test = query.subscribe();
-  console.log("test results in " + test);
-  res.status(200).send(test);
+  // let query = new Parse.Query('champions');
+  // query.equalTo('name', 'Yasuo');
+  // let test = query.subscribe();
+  // console.log("test results in " + test);
+  res.status(200).send("raw");
   // con.connect(function(err) {
   //   con.query("SELECT * FROM champions", function(err, result, fields) {
   //     if(err) throw err;
