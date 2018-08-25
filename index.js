@@ -17,17 +17,6 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
-var con = mysql.createConnection({
-  host: "us-cdbr-iron-east-01.cleardb.net",
-  user: "b52246f2fbaf21",
-  password: "c0717918" ,
-  database: "heroku_f18a66d54326764"
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
 
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
@@ -52,6 +41,18 @@ var api = new ParseServer({
 var app = express();
 leagueAPI.init(riotDevKey);
 leagueAPI.setRateLimit(200, 500);
+
+var con = mysql.createConnection({
+  host: "us-cdbr-iron-east-01.cleardb.net",
+  user: "b52246f2fbaf21",
+  password: "c0717918" ,
+  database: "heroku_f18a66d54326764"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
 
 // Serve static assets from the /public folder
 app.use('/public', express.static(path.join(__dirname, '/public')));
