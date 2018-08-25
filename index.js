@@ -132,7 +132,7 @@ app.get('/update', function(req, res) {
   }, function (err, response, body) {
       console.log(body);
   });
-})
+});
 
 var port = process.env.PORT || 1337;
 var httpServer = require('http').createServer(app);
