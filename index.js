@@ -7,7 +7,7 @@ var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 var leagueAPI = require('leagueapi');
 // riot.developerKey = "RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
-var riotDevKey = process.env.RIOTDEVKEY;
+var riotDevKey = "RGAPI-2cff7769-a406-4a4f-a764-34c5e2e37239";
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
