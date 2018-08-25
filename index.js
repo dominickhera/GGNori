@@ -165,7 +165,7 @@ httpServer.listen(port, function() {
 ParseServer.createLiveQueryServer(httpServer);
 
 
-let query = new Parse.Query('champions');
-query.equalTo('name', 'Yasuo');
-let test = query.subscribe();
-console.log("test results in " + test);
+// let query = new Parse.Query('champions');
+// query.equalTo('name', 'Yasuo');
+// let test = query.subscribe();
+// console.log("test results in " + test);
