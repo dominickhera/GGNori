@@ -84,10 +84,10 @@ app.get('/champions/', function(req, res) {
 
 app.get('/championData/', function(req, res) {
   console.log("am i even being called");
-  let query = new Parse.Query('champions');
-  query.equalTo('name', 'Yasuo');
-  let test = query.subscribe();
-  console.log("test results in " + test);
+  // let query = new Parse.Query('champions');
+  // query.equalTo('name', 'Yasuo');
+  // let test = query.subscribe();
+  // console.log("test results in " + test);
   // con.connect(function(err) {
   //   con.query("SELECT * FROM champions", function(err, result, fields) {
   //     if(err) throw err;
@@ -163,3 +163,9 @@ httpServer.listen(port, function() {
 
 // This will enable the Live Query real-time server
 ParseServer.createLiveQueryServer(httpServer);
+
+
+let query = new Parse.Query('champions');
+query.equalTo('name', 'Yasuo');
+let test = query.subscribe();
+console.log("test results in " + test);
