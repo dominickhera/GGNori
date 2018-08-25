@@ -13,6 +13,7 @@
     "kerberos": "~0.0.x",
     "leagueapi": "^0.4.21",
     "leaguejs": "^1.10.1",
+    "mysql": "^2.16.0",
     "parse": "~1.8.0",
     "parse-server": "*",
     "request": "*"

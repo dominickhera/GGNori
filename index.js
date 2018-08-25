@@ -6,6 +6,7 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 var leagueAPI = require('leagueapi');
+var mysql = require('mysql');
 // riot.developerKey = "RGAPI-68212aa1-b941-4343-9cfd-88b7180525c1";
 var riotDevKey = "RGAPI-2cff7769-a406-4a4f-a764-34c5e2e37239";
 // const riotDevKey = LeagueJS(process.env)
@@ -15,6 +16,13 @@ var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
+
+var con = mysql.createConnection({
+  host: "us-cdbr-iron-east-01.cleardb.net",
+  user: "b52246f2fbaf21",
+  password: "c0717918" ,
+  database: "heroku_f18a66d54326764"
+});
 
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
@@ -30,6 +38,12 @@ var api = new ParseServer({
 // If you wish you require them, you can set them as options in the initialization above:
 // javascriptKey, restAPIKey, dotNetKey, clientKey
 
+
+// con.connect(function(err) {
+  // if (err) throw err;
+  // console.log("connected bb");
+  // var sql = "INSERT INTO champions () VALUES"
+// })
 var app = express();
 leagueAPI.init(riotDevKey);
 leagueAPI.setRateLimit(200, 500);
@@ -109,6 +123,16 @@ app.get('/summoner/:name', function(req, res) {
 app.get('/test', function(req, res) {
   res.sendFile(path.join(__dirname, '/public/test.html'));
 });
+
+app.get('/update', function(req, res) {
+  var url = "http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json";
+  request({
+    url: url,
+    json: true
+  }, function (err, response, body) {
+      console.log(body);
+  });
+})
 
 var port = process.env.PORT || 1337;
 var httpServer = require('http').createServer(app);
