@@ -24,6 +24,11 @@ var con = mysql.createConnection({
   database: "heroku_f18a66d54326764"
 });
 
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
