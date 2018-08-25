@@ -12,12 +12,13 @@ window.onload = function() {
 
     var championList = [];
     $.ajax({
-    url: "/champions/",
+    url: "/update/",
     type: 'get',
     dataType: "json",
 
     success: function(data) {
       championList = data;
+      console.log(data);
     },
     fail: function(error) {
             
