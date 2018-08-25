@@ -9,6 +9,8 @@ RUN npm install
 ENV APP_ID setYourAppId
 ENV MASTER_KEY setYourMasterKey
 ENV DATABASE_URI setMongoDBURI
+ENV RIOTDEVKEY 'RGAPI-2cff7769-a406-4a4f-a764-34c5e2e37239'
+
 
 # Optional (default : 'parse/cloud/main.js')
 # ENV CLOUD_CODE_MAIN cloudCodePath
