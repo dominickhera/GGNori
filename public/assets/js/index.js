@@ -2,13 +2,13 @@
 window.onload = function() {
     var championList = [];
     $.ajax({
-    url: "/champions/",
+    url: "/championData/",
     type: 'get',
     dataType: "json",
 
     success: function(data) {
       championList = data;
-      console.log(championList);
+      console.log(data);
     },
     fail: function(error) {
             
