@@ -84,15 +84,18 @@ app.get('/champions/', function(req, res) {
 
 app.get('/championData/', function(req, res) {
   console.log("am i even being called");
+  let query = httpServer.liveQuery('champions');
+  query.equalTo('name', 'Yasuo');
+
   // let query = api.liveQuery('champions');
 // console.log("query does something like this" + query);
 // function(err, response, body) {
   
   // let query = new Parse.Query('champions');
   // query.equalTo('name', 'Yasuo');
-  // let test = query.subscribe();
-  // console.log("test results in " + test);
-  res.status(200).send("raw");
+  let test = query.subscribe();
+  console.log("test results in " + test);
+  res.status(200).send(test);
   // con.connect(function(err) {
   //   con.query("SELECT * FROM champions", function(err, result, fields) {
   //     if(err) throw err;
