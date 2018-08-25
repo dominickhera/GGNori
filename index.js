@@ -42,17 +42,17 @@ var app = express();
 leagueAPI.init(riotDevKey);
 leagueAPI.setRateLimit(200, 500);
 
-var con = mysql.createConnection({
-  host: "us-cdbr-iron-east-01.cleardb.net",
-  user: "b52246f2fbaf21",
-  password: "c0717918" ,
-  database: "heroku_f18a66d54326764"
-});
+// var con = mysql.createConnection({
+//   host: "us-cdbr-iron-east-01.cleardb.net",
+//   user: "b52246f2fbaf21",
+//   password: "c0717918" ,
+//   database: "heroku_f18a66d54326764"
+// });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+// });
 
 // Serve static assets from the /public folder
 app.use('/public', express.static(path.join(__dirname, '/public')));
@@ -84,12 +84,12 @@ app.get('/champions/', function(req, res) {
 
 app.get('/championData/', function(req, res) {
   console.log("am i even being called");
-  con.connect(function(err) {
-    con.query("SELECT * FROM champions", function(err, result, fields) {
-      if(err) throw err;
-      console.log(result);
-    });
-  });
+  // con.connect(function(err) {
+  //   con.query("SELECT * FROM champions", function(err, result, fields) {
+  //     if(err) throw err;
+  //     console.log(result);
+  //   });
+  // });
 });
 
 app.get('/champions/:name', function(req, res) {
