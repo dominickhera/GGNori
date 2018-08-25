@@ -12,7 +12,7 @@ window.onload = function() {
 
     var championList = [];
     $.ajax({
-    url: "/championData/",
+    url: "/champions/",
     type: 'get',
     dataType: "json",
 
