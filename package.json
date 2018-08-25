@@ -12,6 +12,7 @@
     "express": "^4.16.3",
     "kerberos": "~0.0.x",
     "leagueapi": "^0.4.21",
+    "leaguejs": "^1.10.1",
     "parse": "~1.8.0",
     "parse-server": "*",
     "request": "*"
