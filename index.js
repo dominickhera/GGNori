@@ -68,17 +68,12 @@ app.get('/summoner/', function(req, res) {
 
 app.get('/champions/', function(req, res) {
   var url = "http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json";
-  // request({
-  //   url: url,
-  //   json: true
-  // }, function (err, response, body) {
-  //     console.log(body);
-  // });
-  request(url, function (error, response, body) {
-  console.log('error:', error); // Print the error if one occurred
-  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  console.log('body:', body); // Print the HTML for the Google homepage.
-});
+  request({
+    url: url,
+    json: true
+  }, function (err, response, body) {
+      console.log(body);
+  });
 });
 
 app.get('/champions/:name', function(req, res) {
