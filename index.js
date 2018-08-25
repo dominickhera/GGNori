@@ -84,9 +84,9 @@ app.get('/champions/', function(req, res) {
 
 app.get('/championData/', function(req, res) {
   console.log("am i even being called");
-  let query = new Parse.Query('champions');
+  // let query = new Parse.Query('champions');
   // let test = query.subscribe();
-  console.log("test results in " + query);
+  console.log("test results in ");
   // con.connect(function(err) {
   //   con.query("SELECT * FROM champions", function(err, result, fields) {
   //     if(err) throw err;
