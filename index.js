@@ -77,6 +77,7 @@ app.get('/champions/', function(req, res) {
 });
 
 app.get('/championData/', function(req, res) {
+  console.log("am i even being called");
   con.connect(function(err) {
     con.query("SELECT * FROM champions", function(err, result, fields) {
       if(err) throw err;
