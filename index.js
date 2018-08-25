@@ -67,12 +67,13 @@ app.get('/summoner/', function(req, res) {
 });
 
 app.get('/champions/', function(req, res) {
+  var url = "http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json";
   request({
-        url: "https://na1.api.riotgames.com/lol/static-data/v3/champions?locale=en_US&dataById=true&api_key=" + riotDevKey,
-        json: true,
-      }, function(err, response, body) {
-        res.status(200).send(body);
-    });
+    url: url,
+    json: true
+  }, function (err, response, body) {
+      console.log(body);
+  });
 });
 
 app.get('/champions/:name', function(req, res) {
