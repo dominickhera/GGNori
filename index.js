@@ -170,10 +170,4 @@ httpServer.listen(port, function() {
 });
 
 // This will enable the Live Query real-time server
-var databaseQueryServer = ParseServer.createLiveQueryServer(httpServer);
-
-
-// let query = new Parse.Query('champions');
-// query.equalTo('name', 'Yasuo');
-// let test = query.subscribe();
-// console.log("test results in " + test);
+ParseServer.createLiveQueryServer(httpServer);
