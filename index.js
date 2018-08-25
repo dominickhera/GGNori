@@ -124,7 +124,7 @@ app.get('/test', function(req, res) {
   res.sendFile(path.join(__dirname, '/public/test.html'));
 });
 
-app.get('/update', function(req, res) {
+app.get('/update/', function(req, res) {
   var url = "http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json";
   request({
     url: url,
