@@ -84,7 +84,7 @@ app.get('/champions/', function(req, res) {
 
 app.get('/championData/', function(req, res) {
   console.log("am i even being called");
-  let query = databaseQueryServer.liveQuery('champions');
+  let query = api.liveQuery('champions');
   query.equalTo('name', 'Yasuo');
 
   // let query = api.liveQuery('champions');
