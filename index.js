@@ -84,6 +84,10 @@ app.get('/champions/', function(req, res) {
 
 app.get('/championData/', function(req, res) {
   console.log("am i even being called");
+  let query = api.liveQuery('champions');
+console.log("query does something like this" + query);
+// function(err, response, body) {
+  res.status(200).send(query);
   // let query = new Parse.Query('champions');
   // query.equalTo('name', 'Yasuo');
   // let test = query.subscribe();

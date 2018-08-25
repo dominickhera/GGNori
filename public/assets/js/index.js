@@ -16,8 +16,6 @@ window.onload = function() {
         console.log(error); 
     }
   });
-  let query = new Parse.Query('champions');
-  query.equalTo('name', 'Yasuo');
-  let subscription = query.subscribe();
-console.log(subscription);
+
+console.log("why");
 }
