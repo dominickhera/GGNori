@@ -25,7 +25,7 @@ var api = new ParseServer({
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   liveQuery: {
-    classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
+    classNames: ["Posts", "Comments", "champions"] // List of classes to support for query subscriptions
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
@@ -84,6 +84,9 @@ app.get('/champions/', function(req, res) {
 
 app.get('/championData/', function(req, res) {
   console.log("am i even being called");
+  let query = new Parse.Query('champions');
+  let test = query.subscribe();
+  console.log("test results in " + test);
   // con.connect(function(err) {
   //   con.query("SELECT * FROM champions", function(err, result, fields) {
   //     if(err) throw err;
