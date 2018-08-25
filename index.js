@@ -84,8 +84,8 @@ app.get('/champions/', function(req, res) {
 
 app.get('/championData/', function(req, res) {
   console.log("am i even being called");
-  let query = httpServer.liveQuery('champions');
-  // query.equalTo('name', 'Yasuo');
+  let query = databaseQueryServer.liveQuery('champions');
+  query.equalTo('name', 'Yasuo');
 
   // let query = api.liveQuery('champions');
 // console.log("query does something like this" + query);
@@ -170,7 +170,7 @@ httpServer.listen(port, function() {
 });
 
 // This will enable the Live Query real-time server
-ParseServer.createLiveQueryServer(httpServer);
+var databaseQueryServer = ParseServer.createLiveQueryServer(httpServer);
 
 
 // let query = new Parse.Query('champions');
