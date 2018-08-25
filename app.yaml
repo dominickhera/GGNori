@@ -3,10 +3,11 @@ env: flex
 
 env_variables:
   # --REQUIRED--
-  DATABASE_URI: mongodb://localhost:27017/dev
+  DATABASE_URI: mongodb://heroku_7slxnwl0:37hrgiv0lnilfh7mobs5oq08pd@ds135441.mlab.com:35441/heroku_7slxnwl0
   APP_ID: <your-app-id>
   MASTER_KEY: <your-master-key>
   SERVER_URL: https://your-project-id.appspot.com/parse
+  RIOTAPIKEY: RGAPI-2cff7769-a406-4a4f-a764-34c5e2e37239
   # --OPTIONAL--
   # FILE_KEY: <your-file-key>
   # PARSE_MOUNT: /parse
