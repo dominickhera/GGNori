@@ -20,23 +20,106 @@ window.onload = function() {
 console.log("champ list bb");
 }
 
-function forceGrabChampionList() {
-  // var championList = [];
-  console.log("welcome fam");
-  //   $.ajax({
-  //   url: "/championData/",
-  //   type: 'get',
-  //   dataType: "json",
+var Steps = {};
 
-  //   success: function(data) {
-  //     // championList = data;
-  //     console.log(data);
-  //   },
-  //   fail: function(error) {
-            
-  //           // Non-200 return, do something with error
-  //       console.log(error); 
-  //   }
-  // });
+Steps.init = function() {
+  this.buildParseUrl();
+  this.bindBtn('#step-2-btn', function(e){
+    ParseRequest.getData();
+    e.preventDefault();
+  })
 }
 
+Steps.buildParseUrl = function() {
+  var url = Config.getUrl();
+  $('#parse-url').html(url + '/parse');
+}
+
+Steps.bindBtn = function(id, callback) {
+  $(id).click(callback);
+}
+
+Steps.closeStep = function(id) {
+  $(id).addClass('step--disabled');
+}
+
+Steps.openStep  = function(id) {
+  $(id).removeClass('step--disabled');
+}
+
+Steps.fillStepOutput  = function(id, data) {
+  console.log(data);
+  $(id).html('Output: ' + data).slideDown();
+}
+
+
+var ParseRequest = {};
+
+ParseRequest.getData = function() {
+  XHR.setCallback(function(data){
+    // close second step
+    Steps.closeStep('#step-2');
+    Steps.fillStepOutput('#step-2-output', data);
+    Steps.fillBtn('#step-2-btn', 'Fetched');
+    // open third step
+    Steps.openStep('#step-3');
+    Steps.bindBtn('#step-3-btn', function(e){
+      ParseRequest.postCloudCodeData();
+      e.preventDefault();
+      });
+    },
+    function(error) {
+    	Steps.fillStepError('#step-2-error', 'There was a failure: ' + error);
+  });  
+  XHR.GET('/parse/classes/champions');
+};
+
+
+var Store = {
+  objectId: ""
+};
+
+var Config = {};
+
+Config.getUrl = function() {
+  if (url) return url;
+  var port = window.location.port;
+  var url = window.location.protocol + '//' + window.location.hostname;
+  if (port) url = url + ':' + port;
+  return url;
+}
+
+
+var XHR = {};
+
+XHR.setCallback = function(callback, failureCallback) {
+  this.xhttp = new XMLHttpRequest();
+  var _self = this;
+  this.xhttp.onreadystatechange = function() {
+    if (_self.xhttp.readyState == 4) {
+      if (_self.xhttp.status >= 200 && _self.xhttp.status <= 299) {
+        callback(_self.xhttp.responseText);
+      } else {
+        failureCallback(_self.xhttp.responseText);
+      }
+    }
+  };
+}
+
+// XHR.POST = function(path, callback) {
+//   var seed = {"score":1337,"playerName":"Sean Plott","cheatMode":false}
+//   this.xhttp.open("POST", Config.getUrl() + path, true);
+//   this.xhttp.setRequestHeader("X-Parse-Application-Id", $('#appId').val());
+//   this.xhttp.setRequestHeader("Content-type", "application/json");
+//   this.xhttp.send(JSON.stringify(seed));
+// }
+
+XHR.GET = function(path, callback) {
+  this.xhttp.open("GET", Config.getUrl() + path + '/' + Store.objectId, true);
+  this.xhttp.setRequestHeader("X-Parse-Application-Id", $('#appId').val());
+  this.xhttp.setRequestHeader("Content-type", "application/json");
+  this.xhttp.send(null);
+}
+
+
+Steps.init();
