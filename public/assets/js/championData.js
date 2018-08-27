@@ -52,6 +52,14 @@ Steps.fillStepOutput  = function(id, data) {
   $(id).html('Output: ' + data).slideDown();
 }
 
+Steps.fillStepError  = function(id, errorMsg) {
+  $(id).html(errorMsg).slideDown();
+}
+
+
+Steps.fillBtn  = function(id, message) {
+  $(id).addClass('success').html('✓  ' + message);
+}
 
 var ParseRequest = {};
 
