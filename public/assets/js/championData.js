@@ -1,3 +1,7 @@
+/**
+ *  Steps handler
+ */
+
 var Steps = {};
 
 Steps.init = function() {
@@ -86,7 +90,7 @@ ParseRequest.getData = function() {
     function(error) {
     	Steps.fillStepError('#step-2-error', 'There was a failure: ' + error);
   });  
-  XHR.GET('/parse/classes/GameScore');
+  XHR.GET('/parse/classes/champions');
 };
 
 ParseRequest.postCloudCodeData = function() {
@@ -153,7 +157,8 @@ XHR.POST = function(path, callback) {
 }
 
 XHR.GET = function(path, callback) {
-  this.xhttp.open("GET", Config.getUrl() + path + '/' + Store.objectId, true);
+  console.log(Store.objectId);
+  this.xhttp.open("GET", Config.getUrl() + path + '/', true);
   this.xhttp.setRequestHeader("X-Parse-Application-Id", $('#appId').val());
   this.xhttp.setRequestHeader("Content-type", "application/json");
   this.xhttp.send(null);
