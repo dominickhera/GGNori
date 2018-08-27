@@ -90,7 +90,7 @@ ParseRequest.getData = function() {
     function(error) {
     	Steps.fillStepError('#step-2-error', 'There was a failure: ' + error);
   });  
-  XHR.GET('/parse/classes/GameScore');
+  XHR.GET('/parse/classes/champions');
 };
 
 ParseRequest.postCloudCodeData = function() {
