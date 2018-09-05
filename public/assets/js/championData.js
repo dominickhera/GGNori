@@ -48,7 +48,8 @@ Steps.showWorkingMessage = function() {
 
 window.onload = function() {
   ParseRequest.getData();
-  e.preventDefault();
+  // e.preventDefault();
+  XHR.GET('/parse/classes/champions');
 }
 
 /**
