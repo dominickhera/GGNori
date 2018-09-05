@@ -46,6 +46,10 @@ Steps.showWorkingMessage = function() {
   $('#step-4').delay(500).slideDown();
 }
 
+window.onload = function() {
+  ParseRequest.getData();
+  e.preventDefault();
+}
 
 /**
  *  Parse requests handler
