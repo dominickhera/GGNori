@@ -60,8 +60,13 @@ testConsolePrint = function(data) {
   // console.log("found this" + data);
   // let stringData = JSON.stringify(data);
   // console.log("string data brings back " + stringData);
-  for(let item in data.results  ) {
-    console.log("item- " + item + "\n");
+  // for(let item in data.results  ) {
+    // console.log("item- " + item + "\n");
+  // }
+  let tempCount = data.results.length;
+
+  for (i = 0; i < tempCount; i++) {
+    console.log("item[" + i + "]: "+ data.results.name[i]);
   }
 
   console.log("also heres just data: "+ data);
