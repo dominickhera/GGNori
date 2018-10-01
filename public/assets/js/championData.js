@@ -56,10 +56,6 @@ window.onload = function() {
 
 }
 
-data.sort(function(a, b) {
-  return a.name > b.name;
-});
-
 testConsolePrint = function(data) {
   // console.log("found this" + data);
   let stringData = JSON.parse(data);
