@@ -56,9 +56,14 @@ window.onload = function() {
 
 }
 
+data.sort(function(a, b) {
+  return a.name > b.name;
+});
+
 testConsolePrint = function(data) {
   // console.log("found this" + data);
   let stringData = JSON.parse(data);
+  stringData.sort();
   console.log("string data brings back " + stringData.results);
   let jsonLength = stringData.results.length;
   // for (i = 0; i < jsonLength; i++ ) {
@@ -70,6 +75,8 @@ testConsolePrint = function(data) {
   // let stringCount = stringData['results']
   console.log("also heres just data: "+ data);
 }
+
+
 
 getBase64Image = function(img) {
   var canvas = document.createElement("canvas");
