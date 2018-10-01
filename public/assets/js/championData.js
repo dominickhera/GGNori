@@ -50,6 +50,10 @@ window.onload = function() {
   ParseRequest.getData();
   // e.preventDefault();
   XHR.GET('/parse/classes/champions');
+
+  console.log(data);
+
+
 }
 
 /**
