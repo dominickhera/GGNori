@@ -61,9 +61,12 @@ testConsolePrint = function(data) {
   let stringData = JSON.parse(data);
   console.log("string data brings back " + stringData.results);
   let jsonLength = stringData.results.length;
-  for (i = 0; i < jsonLength; i++ ) {
-    console.log("item[" + i + "]: " + stringData.results[i].name);
-  }
+  // for (i = 0; i < jsonLength; i++ ) {
+    // console.log("item[" + i + "]: " + stringData.results[i].name);
+  // }
+
+  $("#cardTitle").html(stringData.results[0].name);
+  $("#cardDescription").html(stringData.results[0].blurb);
   // let stringCount = stringData['results']
   console.log("also heres just data: "+ data);
 }
