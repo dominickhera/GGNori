@@ -58,16 +58,16 @@ window.onload = function() {
 
 testConsolePrint = function(data) {
   // console.log("found this" + data);
-  // let stringData = JSON.stringify(data);
+  let stringData = JSON.stringify(data);
   // console.log("string data brings back " + stringData);
-  // for(let item in data.results  ) {
-    // console.log("item- " + item + "\n");
-  // }
-  let tempCount = data.length;
-
-  for (i = 0; i < tempCount; i++) {
-    console.log("item[" + i + "]: "+ data[i]);
+  for(let item in stringData  ) {
+    console.log("item- " + item + "\n");
   }
+  // let tempCount = data.length;
+
+  // for (i = 0; i < tempCount; i++) {
+    // console.log("item[" + i + "]: "+ data[i]);
+  // }
 
   console.log("also heres just data: "+ data);
 }
