@@ -61,17 +61,17 @@ testConsolePrint = function(data) {
   let stringData = JSON.parse(data);
   console.log("string data brings back " + stringData);
   for(let item in stringData['results']  ) {
-    console.log("item- " + item + "\n");
+    console.log("item- " + item.name + "\n");
   }
   // let tempCount = data.length;
-  let tempObject = data['results'];
-  // for (i = 0; i < tempCount; i++) {
-    // console.log("item: "+ data['results']);
-  // }s
+  // let tempObject = data['results'];
+  // // for (i = 0; i < tempCount; i++) {
+  //   // console.log("item: "+ data['results']);
+  // // }s
 
-  for(let champ in tempObject) {
-    console.log("champ: " + champ);
-  } 
+  // for(let champ in tempObject) {
+  //   console.log("champ: " + champ);
+  // } 
 
   console.log("also heres just data: "+ data);
 }
