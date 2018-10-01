@@ -57,7 +57,9 @@ window.onload = function() {
 }
 
 testConsolePrint = function(data) {
-  console.log("found this" + data);
+  // console.log("found this" + data);
+  let stringData = JSON.stringify(data);
+  console.log("string data brings back " + stringData);
 }
 
 /**
