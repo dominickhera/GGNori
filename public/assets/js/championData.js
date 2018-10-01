@@ -66,8 +66,8 @@ testConsolePrint = function(data) {
   // let tempCount = data.length;
 
   // for (i = 0; i < tempCount; i++) {
-    console.log("item: "+ stringData[0]);
-  // }
+    console.log("item: "+ data['results']);
+  // }s
 
   console.log("also heres just data: "+ data);
 }
