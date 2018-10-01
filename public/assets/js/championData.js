@@ -64,10 +64,14 @@ testConsolePrint = function(data) {
   //   console.log("item- " + item + "\n");
   // }
   // let tempCount = data.length;
-
+  let tempObject = data['results'];
   // for (i = 0; i < tempCount; i++) {
-    console.log("item: "+ data['results']);
+    // console.log("item: "+ data['results']);
   // }s
+
+  for(let champ in tempObject) {
+    console.log("champ: " + champ);
+  } 
 
   console.log("also heres just data: "+ data);
 }
