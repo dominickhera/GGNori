@@ -59,7 +59,7 @@ window.onload = function() {
 testConsolePrint = function(data) {
   // console.log("found this" + data);
   let stringData = JSON.parse(data);
-  stringData.sort();
+  // stringData.sort();
   console.log("string data brings back " + stringData.results);
   let jsonLength = stringData.results.length;
   // for (i = 0; i < jsonLength; i++ ) {
