@@ -70,8 +70,10 @@ testConsolePrint = function(data) {
   $("#cardDescription").html(stringData.results[0].blurb);
   // let stringCount = stringData['results']
   console.log("also heres just data: "+ data);
-  var newDiv = document.createElement('championCard');
-  document.body.appendChild(newDiv);
+  var newDiv = document.createElement('#championCard');
+  // d.appendChild(newDiv);
+  var newRow = document.createElement('#championRow');
+  $('#championRow').append(newRow);
 }
 
 
