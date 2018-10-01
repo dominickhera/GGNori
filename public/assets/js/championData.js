@@ -60,7 +60,10 @@ testConsolePrint = function(data) {
   // console.log("found this" + data);
   let stringData = JSON.parse(data);
   console.log("string data brings back " + stringData.results);
-
+  let jsonLength = stringData.results.length;
+  for (i = 0; i < jsonLength; i++ ) {
+    console.log("item[" + i + "]: " + stringData.results[0]);
+  }
   // let stringCount = stringData['results']
   console.log("also heres just data: "+ data);
 }
