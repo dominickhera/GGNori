@@ -51,9 +51,13 @@ window.onload = function() {
   // e.preventDefault();
   XHR.GET('/parse/classes/champions');
 
-  console.log(data);
+  // console.log(data);
 
 
+}
+
+testConsolePrint = function(data) {
+  console.log("found this" + data);
 }
 
 /**
@@ -88,6 +92,7 @@ ParseRequest.getData = function() {
     // close second step
     Steps.closeStep('#step-2');
     Steps.fillStepOutput('#step-2-output', data);
+    testConsolePrint(data);
     Steps.fillBtn('#step-2-btn', 'Fetched');
     // open third step
     Steps.openStep('#step-3');
