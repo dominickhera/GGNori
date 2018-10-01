@@ -62,16 +62,16 @@ data.sort(function(a, b) {
 
 testConsolePrint = function(data) {
   // console.log("found this" + data);
-  // let stringData = JSON.parse(data);
-  // stringData.sort();
-  console.log("string data brings back " + data.results);
-  // let jsonLength = stringData.results.length;
+  let stringData = JSON.parse(data);
+  stringData.sort();
+  console.log("string data brings back " + stringData.results);
+  let jsonLength = stringData.results.length;
   // for (i = 0; i < jsonLength; i++ ) {
     // console.log("item[" + i + "]: " + stringData.results[i].name);
   // }
 
-  $("#cardTitle").html(data.results[0].name);
-  $("#cardDescription").html(data.results[0].blurb);
+  $("#cardTitle").html(stringData.results[0].name);
+  $("#cardDescription").html(stringData.results[0].blurb);
   // let stringCount = stringData['results']
   console.log("also heres just data: "+ data);
 }
@@ -123,11 +123,7 @@ ParseRequest.getData = function() {
     // close second step
     Steps.closeStep('#step-2');
     Steps.fillStepOutput('#step-2-output', data);
-    let tempData = JSON.parse(data);
-    tempData.sort(function(a, b) {
-      return a.name > b.name;
-    });
-    testConsolePrint(tempData);
+    testConsolePrint(data);
     Steps.fillBtn('#step-2-btn', 'Fetched');
     // open third step
     Steps.openStep('#step-3');
