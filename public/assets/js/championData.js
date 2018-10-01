@@ -66,7 +66,7 @@ testConsolePrint = function(data) {
   let tempCount = data.length;
 
   for (i = 0; i < tempCount; i++) {
-    console.log("item[" + i + "]: "+ data.results.name[i]);
+    console.log("item[" + i + "]: "+ data[i]);
   }
 
   console.log("also heres just data: "+ data);
