@@ -59,20 +59,9 @@ window.onload = function() {
 testConsolePrint = function(data) {
   // console.log("found this" + data);
   let stringData = JSON.parse(data);
-  console.log("string data brings back " + stringData);
-  for(let item in stringData['results']  ) {
-    console.log("item- " + item.name + "\n");
-  }
-  // let tempCount = data.length;
-  // let tempObject = data['results'];
-  // // for (i = 0; i < tempCount; i++) {
-  //   // console.log("item: "+ data['results']);
-  // // }s
+  console.log("string data brings back " + stringData[0]);
 
-  // for(let champ in tempObject) {
-  //   console.log("champ: " + champ);
-  // } 
-
+  // let stringCount = stringData['results']
   console.log("also heres just data: "+ data);
 }
 
