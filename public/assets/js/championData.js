@@ -70,7 +70,7 @@ testConsolePrint = function(data) {
   $("#cardDescription").html(stringData.results[0].blurb);
   // let stringCount = stringData['results']
   console.log("also heres just data: "+ data);
-  var newDiv = document.createElement('div');
+  var newDiv = document.createElement('championCard');
   document.body.appendChild(newDiv);
 }
 
