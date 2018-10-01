@@ -63,7 +63,7 @@ testConsolePrint = function(data) {
   // for(let item in data.results  ) {
     // console.log("item- " + item + "\n");
   // }
-  let tempCount = data.results.length;
+  let tempCount = data.length;
 
   for (i = 0; i < tempCount; i++) {
     console.log("item[" + i + "]: "+ data.results.name[i]);
