@@ -58,8 +58,8 @@ window.onload = function() {
 
 testConsolePrint = function(data) {
   // console.log("found this" + data);
-  let stringData = JSON.stringify(data);
-  // console.log("string data brings back " + stringData);
+  let stringData = JSON.parse(data);
+  console.log("string data brings back " + stringData);
   // for(let item in stringData  ) {
   //   console.log("item- " + item + "\n");
   // }
