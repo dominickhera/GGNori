@@ -59,7 +59,7 @@ window.onload = function() {
 testConsolePrint = function(data) {
   // console.log("found this" + data);
   let stringData = JSON.parse(data);
-  console.log("string data brings back " + stringData[0]);
+  console.log("string data brings back " + stringData.results);
 
   // let stringCount = stringData['results']
   console.log("also heres just data: "+ data);
